@@ -108,7 +108,11 @@ public class TestLambda {
 @NoArgsConstructor
 @ToString
 class Employee {
-    private String naem;
+    private String name;
     private int age;
     private double salary;
+
+    public Employee(String name) {
+        this.name = name;
+    }
 }

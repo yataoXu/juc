@@ -2,10 +2,11 @@ package com.evan.juf;
 
 import org.junit.Test;
 
-import java.io.PrintStream;
 import java.util.Comparator;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * @Description
@@ -23,9 +24,51 @@ import java.util.function.Consumer;
  * 类:: 静态方法名
  * <p>
  * 类:: 实例方法名
+ * <p>
+ * Lambda体中调用方法的参数列表与返回值类型，要与函数式接口中抽象方法的函数列表和返回值保持一致
+ * 若Lambda参数列表中的第一个参数是实例方法的调用者，而第二个参数是实例方法的参数时，可以使用Class::method
+ * <p>
+ * <p>
+ * 构造器引用
+ * <p>
+ * 格式：
+ * <p>
+ * ClasssName::new
+ * <p>
+ * 注意： 需要调用的构造器的参数列表要与函数式接口中抽象方法的参数列表保持一致
+ * <p>
+ * <p>
+ * 数组引用
+ * Type[]:: new
  */
 public class TestMethodRef {
 
+
+    // 数组引用
+    public void test07() {
+        Function<Integer, String[]> fun = (x) -> new String[x];
+        System.out.println(fun.apply(10));
+
+        Function<Integer, String[]> fun1 = String[]::new;
+        System.out.println(fun.apply(20));
+    }
+
+    // 构造器引用
+    @Test
+    public void test06() {
+        Function<String, Employee> fun = (x) -> new Employee(x);
+        Function<String, Employee> fun1 = Employee::new;
+        System.out.println(fun1.apply("x"));
+    }
+
+    // 构造器引用
+    @Test
+    public void test05() {
+        Supplier<Employee> sup1 = () -> new Employee();
+
+        Supplier<Employee> sup = Employee::new;
+        System.out.println(sup.get());
+    }
 
     @Test
     public void test03() {
