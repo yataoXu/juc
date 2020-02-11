@@ -1,12 +1,12 @@
 package com.evan.juf;
+import	java.util.stream.Collectors;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
@@ -127,12 +127,61 @@ public class TestStreamAPI3 {
     //
     // 可以将流中元素反复结合起来，得到 一个值
     @Test
-    public void test06(){
-        List<Integer> list1 = Arrays.asList(1,22,4,5,6,73,342,6,46,32,67);
+    public void test06() {
+        List<Integer> list1 = Arrays.asList(1, 22, 4, 5, 6, 73, 342, 6, 46, 32, 67);
         Integer reduce = list1.stream().reduce(0, (x, y) -> x + y);
         System.out.println(reduce);
         System.out.println("===============================");
         Optional<Integer> reduce1 = list.stream().map(person -> person.getAge()).reduce(Integer::sum);
         System.out.println(reduce1.get());
+    }
+
+
+    //collect() 将流转换为其他形式。接收一个Collector接口的实现，用于给Stream中元素做汇总的方法。
+    @Test
+    public void test07() {
+        List<String> nameList = list.stream().map(Person::getUsername).collect(Collectors.toList());
+        nameList.forEach(System.out::println);
+        System.out.println("-------------------------------");
+        Set<String> nameSet = list.stream().map(Person::getUsername).collect(Collectors.toSet());
+        nameSet.forEach(System.out::println);
+        System.out.println("-------------------------------");
+        HashSet<String> collect = list.stream().map(Person::getUsername).collect(Collectors.toCollection(HashSet::new));
+        collect.forEach(System.out::println);
+    }
+
+    @Test
+    public void test08() {
+        // 总数
+        Long count = list.stream().collect(Collectors.counting());
+        System.out.println(count);
+        System.out.println("-------------------------------");
+
+        // 平均值
+        Double averagingDouble = list.stream().collect(Collectors.averagingDouble(Person::getAge));
+        System.out.println(averagingDouble);
+        System.out.println("-------------------------------");
+
+        // 总和
+        Double sum = list.stream().collect(Collectors.summingDouble(Person::getAge));
+        System.out.println(sum);
+        System.out.println("-------------------------------");
+
+
+        // 最值
+        Optional<Person> max = list.stream().max(Comparator.comparingInt(Person::getAge));
+        max.orElse(new Person());
+        System.out.println(max.get());
+    }
+
+    @Test
+    public void test09(){
+        // 分组
+        Map<Person.Status, List<Person>> groupingByStatus = list.stream().collect(Collectors.groupingBy(Person::getStatus));
+        System.out.println(groupingByStatus);
+        for   (Map.Entry<Person.Status, List<Person>> person :groupingByStatus.entrySet()){
+            System.out.println(person.getKey()+"---------------"+person.getValue());
+
+        }
     }
 }
