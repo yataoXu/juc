@@ -1,12 +1,9 @@
 package com.evan.juf;
-import	java.util.stream.Collectors;
-
-import java.util.HashSet;
-import java.util.*;
-import java.util.stream.Collectors;
 
 import org.junit.Test;
 
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -15,7 +12,7 @@ import java.util.stream.Stream;
  * @Author Evan
  * @date 2020.02.11 22:43
  * <p>
- * map: 接收lambda,将元素转换成其他形式或提取元素。接收一个函数作为参数，该函数会被应用到每个
+ * map: 接收lambda,将元素转换成其他形式或提取元素。接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素
  * flatMap: 接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流。
  * <p>
  * 就像list 中的add() 和 addALL()的区别
@@ -39,31 +36,45 @@ public class TestStreamAPI3 {
         list.stream().map(Person::getUsername).forEach(System.out::println);
         System.out.println("---------");
 
-
         Stream<Stream<Character>> rStream = list.stream().map((p) -> TestStreamAPI3.filterCharacter(p.getUsername()));
         rStream.forEach((sm) -> sm.forEach(System.out::println));
-
-
     }
 
+    //map() & flatMap()的区别
+    //map: 接收lambda,将元素转换成其他形式或提取元素。接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素
+    //flatMap: 接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流。
+    @Test
+    public void test021(){
+        // 一个需求：将{a,a,a},{b,b,b},{c,c,c}}中的字符全部提取出来转大写并输出
+        List<String> list021 = Arrays.asList("aaa","bbb","ccc","ddd");
+        Stream<Stream<Character>> streamStream = list021.stream().map(TestStreamAPI3::filterCharacter);
+        // 输出的是stream对象。
+        streamStream.forEach(System.out::print);  // java.util.stream.ReferencePipeline$Head@69222c14
+        // 若想遍历，还需要外加一层for循环
+//        streamStream.forEach((sm)->sm.forEach(System.out::println));
+
+        // 使用flatMap
+        list021.stream().flatMap(TestStreamAPI3::filterCharacter).forEach(System.out::println);
+    }
     @Test
     public void test02() {
-        // 一个需求
+        // 一个需求{{a,a,a},{b,b,b},{c,c,c}}  --->{a,a,a,b,b,b,c,c,c}
         Stream<Stream<Character>> rStream = list.stream().map((p) -> TestStreamAPI3.filterCharacter(p.getUsername()));//{{a,a,a},{b,b,b},{c,c,c}}
         rStream.forEach((sm) -> sm.forEach(System.out::println));
-
         System.out.println("==========================");
         // 优化
         list.stream().flatMap((person -> TestStreamAPI3.filterCharacter(person.getUsername()))).forEach(System.out::println);//{a,a,a,b,b,b,c,c,c}
     }
 
+
     public static Stream<Character> filterCharacter(String str) {
         List<Character> list = new ArrayList<>();
-        for (Character c : str.toCharArray()) {
+        for (Character c : str.toUpperCase().toCharArray()) {
             list.add(c);
         }
         return list.stream();
     }
+
 
     /**
      * 排序
