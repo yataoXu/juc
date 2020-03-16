@@ -15,8 +15,6 @@ public class SingleThreadDemo {
         ExecutorService threadPool = Executors.newSingleThreadExecutor();// 一池中一个线程
 
         try {
-
-
             for (int i = 0; i < 10; i++) {
                 threadPool.execute(() -> {
                     System.out.println(Thread.currentThread().getName() + "\t 执行");
