@@ -540,8 +540,7 @@ private boolean addWorker(Runnable firstTask, boolean core) {
             return false;
         //只有满足以下两种条件才会继续创建worker线程对象
         //1.RUNNING状态，
-        //2.shutdown状态，且firstTask为null（因为shutdown状态下不再接收新任务），队列不是空（shutdown状态下需要继续处理队列中的任务）
-         通过自旋的方式增加线程池线程数
+        //2.shutdown状态，且firstTask为null（因为shutdown状态下不再接收新任务），队列不是空（shutdown状态下需要继续处理队列中的任务）通过自旋的方式增加线程池线程数
         for (;;) {
             int wc = workerCountOf(c);
             //1.如果线程数大于最大可创建的线程数CAPACITY，直接返回false；
@@ -549,10 +548,13 @@ private boolean addWorker(Runnable firstTask, boolean core) {
             if (wc >= CAPACITY ||
                 wc >= (core ? corePoolSize : maximumPoolSize))
                 return false;
-            if (compareAndIncrementWorkerCount(c))//将WorkerCount通过CAS操作增加1，成功的话直接跳出两层循环；
+
+            //将WorkerCount通过CAS操作增加1，成功的话直接跳出两层循环；
+            if (compareAndIncrementWorkerCount(c))
                 break retry;
             c = ctl.get();  // Re-read ctl
-            if (runStateOf(c) != rs)//否则则判断当前线程池的状态，如果现在获取到的状态与进入自旋的状态不一致的话，那么则通过continue retry重新进行状态的判断
+            //否则则判断当前线程池的状态，如果现在获取到的状态与进入自旋的状态不一致的话，那么则通过continue retry重新进行状态的判断
+            if (runStateOf(c) != rs)
                 continue retry;
             // else CAS failed due to workerCount change; retry inner loop
         }
@@ -564,11 +566,13 @@ private boolean addWorker(Runnable firstTask, boolean core) {
     boolean workerAdded = false;
     Worker w = null;
     try {
-        w = new Worker(firstTask); //创建一个新的Worker对象
+        //创建一个新的Worker对象
+        w = new Worker(firstTask); 
         final Thread t = w.thread;
         if (t != null) {
             final ReentrantLock mainLock = this.mainLock;
-            mainLock.lock(); //获取线程池的重入锁后，
+            // 获取线程池的重入锁后，
+            mainLock.lock(); 
             try {
                 // Recheck while holding lock.
                 // Back out on ThreadFactory failure or if
@@ -609,13 +613,16 @@ private boolean addWorker(Runnable firstTask, boolean core) {
 }
 ```
 
----
-## retry
-
-这retry就是一个标记，标记对一个循环方法的操作（continue和break）处理点，功能类似于goto，所以retry一般都是伴随着for循环出现，retry:标记的下一行就是for循环，在for循环里面调用continue（或者break）再紧接着retry标记时，就表示从这个地方开始执行continue（或者break）操作
-
----
-
+```
+   private final ReentrantLock mainLock = new ReentrantLock();
+   
+    /**
+     * Attempts to CAS-increment the workerCount field of ctl.
+     */
+    private boolean compareAndIncrementWorkerCount(int expect) {
+        return ctl.compareAndSet(expect, expect + 1);
+    }
+```
 
 
 ## 内部类Worker
@@ -699,15 +706,15 @@ private final class Worker
 ##### Worker的构造方法
 构造方法里面要重点关注一下getThreadFactory()这个方法
 ```
-        //参数为Worker线程运行后第一个要执行的任务
-        Worker(Runnable firstTask) { 
-            //设置ASQ的state为-1  设置worker处于不可加锁的状态，看后面的tryAcquire方法，只有state为0时才允许加锁，worker线程运行以后才会把state置为0
-            setState(-1); 
-            //设置第一个运行的任务
-            this.firstTask = firstTask;  
-            //创建线程，将this自己传入进去；getThreadFactory()见后面详解
-            this.thread = getThreadFactory().newThread(this); 
-        }
+//参数为Worker线程运行后第一个要执行的任务
+Worker(Runnable firstTask) { 
+    //设置AQS的state为-1  设置worker处于不可加锁的状态，看后面的tryAcquire方法，只有state为0时才允许加锁，worker线程运行以后才会把state置为0
+    setState(-1); 
+    //设置第一个运行的任务
+    this.firstTask = firstTask;  
+    //创建线程，将this自己传入进去；getThreadFactory()见后面详解
+    this.thread = getThreadFactory().newThread(this); 
+}
 ```
 
 ##### 线程的创建getThreadFactory()；
@@ -759,7 +766,38 @@ public static ThreadFactory defaultThreadFactory() {
  #### demo
  
  ```
+ package com.evan.juc.threadpool;
  
+ import java.util.concurrent.ThreadFactory;
+ import java.util.concurrent.atomic.AtomicInteger;
+ 
+ public class CustomerThreadFactory implements ThreadFactory {
+     private static final AtomicInteger poolNumber = new AtomicInteger(1);
+     private final ThreadGroup group;
+     private final AtomicInteger threadNumber = new AtomicInteger(1);
+     private final String namePrefix;
+ 
+     CustomerThreadFactory() {
+         SecurityManager s = System.getSecurityManager();
+         group = (s != null) ? s.getThreadGroup() :
+                 Thread.currentThread().getThreadGroup();
+         namePrefix = "evan customer thread id -" +
+                 poolNumber.getAndIncrement() +
+                 "-thread-";
+     }
+ 
+     public Thread newThread(Runnable r) {
+         Thread t = new Thread(group, r,
+                 namePrefix + threadNumber.getAndIncrement(),
+                 0);
+         if (t.isDaemon())
+             t.setDaemon(false);
+         if (t.getPriority() != Thread.NORM_PRIORITY)
+             t.setPriority(Thread.NORM_PRIORITY);
+         return t;
+     }
+ }
+
  ```
  
 
@@ -776,8 +814,8 @@ public static ThreadFactory defaultThreadFactory() {
 ##### worker线程的加锁解锁
 worker的加锁解锁机制是基于AQS框架的，要完全弄明白它的加锁解锁机制请看AQS框架的实现，在这里只是简单介绍一下：
 ```
-//尝试加锁方法，将状态从0设置为1；如果不是0则加锁失败,在worker线程没有启动前是-1状态，无法加锁
-//该方法重写了父类AQS的同名方法
+// 尝试加锁方法，将状态从0设置为1；如果不是0则加锁失败,在worker线程没有启动前是-1状态，无法加锁
+// 该方法重写了父类AQS的同名方法
 protected boolean tryAcquire(int unused) {
     if (compareAndSetState(0, 1)) {
         setExclusiveOwnerThread(Thread.currentThread());
@@ -786,8 +824,8 @@ protected boolean tryAcquire(int unused) {
     return false;
 }
 
-//尝试释放锁的方法，直接将state置为0
-//该方法重写了父类AQS的同名方法
+// 尝试释放锁的方法，直接将state置为0
+// 该方法重写了父类AQS的同名方法
 protected boolean tryRelease(int unused) {
     setExclusiveOwnerThread(null);
     setState(0);
@@ -816,7 +854,7 @@ final void runWorker(Worker w) {
     Runnable task = w.firstTask;
     w.firstTask = null;
     // 在构造方法里面将state设置为了-1，执行该方法就将state置为了0，这样就可以加锁了，-1状态下是无法加锁的，看Worker类的tryAcquire方法
-    w.unlock(); 
+    w.unlock();   //  public void unlock()      { release(1); }
     //该变量代表任务执行是否发生异常，默认值为true发生了异常，后面会用到这个变量
     boolean completedAbruptly = true;
     try {
@@ -887,8 +925,8 @@ final void runWorker(Worker w) {
 }
 ```
 
-需要注意的是，线程如果执行任务过程中，业务代码抛出了异常，那么会将抛出的异常catch以后抛出，如果是Throwable类型的异常，则会封装成Error抛出，最后此线程退出，但是退出之前会将任务完成数照样+1，然后会在控制台上打印Error或者是RuntimeException 异常，这些异常不会被我们捕获，异常信息只会在控制台打出，不会再我们的log日志中打出；
-所以我们一定要自己去捕获并处理我们的异常，而不能抛出不管；
+需要注意的是，线程如果执行任务过程中，业务代码抛出了异常，那么会将抛出的异常catch以后抛出，如果是Throwable类型的异常，则会封装成Error抛出，最后此线程退出，但是退出之前会将任务完成数照样+1，然后会在控制台上打印Error或者是RuntimeException 异常，
+这些异常不会被我们捕获，异常信息只会在控制台打出，不会再我们的log日志中打出；所以我们一定要自己去捕获并处理我们的异常，而不能抛出不管；
 
 ##### worker线程从任务队列里面获取任务getTask
 从任务队列中获取任务
@@ -901,88 +939,105 @@ final void runWorker(Worker w) {
 ```
 
 ```
-     private Runnable getTask() {
-        // 如果判断当前线程池状态需要启用超时操作，那么任务队列取任务时使用的是带有超时的workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS)方法，如果超时，则会将timeOut 变量设置为true，在下次执行for循环时根据timeOut来执行超时操作；
-        boolean timedOut = false;  
+ private Runnable getTask() {
+    // 如果判断当前线程池状态需要启用超时操作，那么任务队列取任务时使用的是带有超时的workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS)方法，如果超时，则会将timeOut 变量设置为true，在下次执行for循环时根据timeOut来执行超时操作；
+    boolean timedOut = false;  
 
-        for (;;) {
-            int c = ctl.get();
-            int rs = runStateOf(c);
-            /**
-            * 以下分支在stop、tidying、terminated状态，或者在SHUTDOWN状态且任务队列为空时　退出当前线程
-            * 
-            * 判断线程池状态是否允许继续获取任务：
-            * RUNNING<shutdown<stop<tidying<terminated;
-            * rs >= SHUTDOWN，包含两部分判断操作
-            *1.如果是rs > SHUTDOWN，即状态为stop、tidying、terminated；这时不再处理队列中的任务，直接返回null
-            *2.如果是rs = SHUTDOWN ，rs>=STOP不成立，这时还需要处理队列中的任务除非队列为空，没有任务要处理，则返回null
-            */
-            // Check if queue empty only if necessary.
-            if (rs >= SHUTDOWN && (rs >= STOP || workQueue.isEmpty())) {
-                //自旋锁将ctl减1（也就是将线程池中的线程数减1）
-                decrementWorkerCount();
+    for (;;) {
+        int c = ctl.get();
+        int rs = runStateOf(c);
+        /**
+        * 以下分支在stop、tidying、terminated状态，或者在SHUTDOWN状态且任务队列为空时　退出当前线程
+        * 
+        * 判断线程池状态是否允许继续获取任务：
+        * RUNNING<shutdown<stop<tidying<terminated;
+        * rs >= SHUTDOWN，包含两部分判断操作
+        *1.如果是rs > SHUTDOWN，即状态为stop、tidying、terminated；这时不再处理队列中的任务，直接返回null
+        *2.如果是rs = SHUTDOWN ，rs>=STOP不成立，这时还需要处理队列中的任务除非队列为空，没有任务要处理，则返回null
+        */
+        // Check if queue empty only if necessary.
+        if (rs >= SHUTDOWN && (rs >= STOP || workQueue.isEmpty())) {
+            //自旋锁将ctl减1（也就是将线程池中的线程数减1）
+            decrementWorkerCount();
+            return null;
+        }
+        /**
+         * 在RUNNING状态 或 shutdown状态且任务队列不为空时继续往下执行执行
+         */
+
+        /**
+         *　以下做线程超时控制：
+         * 启用超时控制需要满足至少一个条件
+         * 1.allowCoreThreadTimeOut为true代表核心线程数可以做超时控制；
+         * 2.如果当前线程数>corePoolSize核心线程数,也可以做超时控制；
+         * 在以上前提下，再判断当前线程是否需要销毁:
+         * 1.如果当前线程数大于maximumPoolSize，这肯定是不允许的，需要销毁当前线程；
+         * 2.如果当前线程上次执行循环时，取任务操作超时，任务队列是空，需要销毁当前线程；
+         */
+
+        //获取线程池中线程数量
+        int wc = workerCountOf(c);
+
+        // timed变量用于判断是否需要进行超时控制。
+        // allowCoreThreadTimeOut默认是false，也就是核心线程不允许进行超时；
+        // wc > corePoolSize，表示当前线程池中的线程数量大于核心线程数量；
+        // 对于超过核心线程数量的这些线程，需要进行超时控制； 
+        boolean timed = allowCoreThreadTimeOut || wc > corePoolSize;
+
+        /*
+        * 超时销毁线程需要先满足以下两个条件之一
+        * 1. wc > maximumPoolSize的情况是因为可能在此方法执行阶段同时执行了setMaximumPoolSize方法；
+        * 2. timed && timedOut 如果为true，表示当前操作需要进行超时控制，并且上次循环当前线程从任务队列中获取任务发生了超时，没有取到任务；
+        *  满足上面两个条件之一的情况下，接下来判断，如果线程数量大于1，或者线程队列是空的，那么尝试将workerCount减1，减1成功则返回null，退出当前线程； 如果减1失败，则返回继续执行循环操作，重试。
+        */
+        if ((wc > maximumPoolSize || (timed && timedOut))
+            && (wc > 1 || workQueue.isEmpty())) {
+            //尝试将线程池线程数量减一
+            if (compareAndDecrementWorkerCount(c))
                 return null;
-            }
-            /**
-             * 在RUNNING状态 或 shutdown状态且任务队列不为空时继续往下执行执行
-             */
-
-            /**
-             *　以下做线程超时控制：
-             * 启用超时控制需要满足至少一个条件
-             * 1.allowCoreThreadTimeOut为true代表核心线程数可以做超时控制；
-             * 2.如果当前线程数>corePoolSize核心线程数,也可以做超时控制；
-             * 在以上前提下，再判断当前线程是否需要销毁:
-             * 1.如果当前线程数大于maximumPoolSize，这肯定是不允许的，需要销毁当前线程；
-             * 2.如果当前线程上次执行循环时，取任务操作超时，任务队列是空，需要销毁当前线程；
-             */
-
-            //获取线程池中线程数量
-            int wc = workerCountOf(c);
-
-            // timed变量用于判断是否需要进行超时控制。
-            // allowCoreThreadTimeOut默认是false，也就是核心线程不允许进行超时；
-            // wc > corePoolSize，表示当前线程池中的线程数量大于核心线程数量；
-            // 对于超过核心线程数量的这些线程，需要进行超时控制； 
-            boolean timed = allowCoreThreadTimeOut || wc > corePoolSize;
-
-            /*
-            * 超时销毁线程需要先满足以下两个条件之一
-            * 1. wc > maximumPoolSize的情况是因为可能在此方法执行阶段同时执行了setMaximumPoolSize方法；
-            * 2. timed && timedOut 如果为true，表示当前操作需要进行超时控制，并且上次循环当前线程从任务队列中获取任务发生了超时，没有取到任务；
-            *  满足上面两个条件之一的情况下，接下来判断，如果线程数量大于1，或者线程队列是空的，那么尝试将workerCount减1，减1成功则返回null，退出当前线程； 如果减1失败，则返回继续执行循环操作，重试。
-            */
-            if ((wc > maximumPoolSize || (timed && timedOut))
-                && (wc > 1 || workQueue.isEmpty())) {
-                //尝试将线程池线程数量减一
-                if (compareAndDecrementWorkerCount(c))
-                    return null;
-                //如果将线程池数量减一不成功则循环重试
-                continue;
-            }
+            // 如果将线程池数量减一不成功则循环重试
+            continue;
+        }
 
 
-            /**
-             * 如果没有超时，则继续去任务队列取任务执行；
-             *取任务操作
-             */
-            try {
-                //根据timed（是否启用超时控制）来判断执行poll操作还是执行take()操作还是执行有时间限制的poll操作，并返回获取到的任务；
-                Runnable r = timed ?
-                    workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS) :
-                    workQueue.take(); 
-                if (r != null)
-                    return r;
-                //如果poll操作等待超时,没有取到任务；则将timeOut设置为true；
-                timedOut = true;
-            } catch (InterruptedException retry) {
-                //如果是因为线程中断导致没有取到任务；则设置timedOut=false继续执行循环，取任务
-                timedOut = false;
-            }
+        /**
+         * 如果没有超时，则继续去任务队列取任务执行；
+         * 取任务操作
+         */
+        try {
+            //根据timed（是否启用超时控制）来判断执行poll操作还是执行take()操作还是执行有时间限制的poll操作，并返回获取到的任务；
+            Runnable r = timed ?
+                workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS) :
+                workQueue.take(); 
+            if (r != null)
+                return r;
+            //如果poll操作等待超时,没有取到任务；则将timeOut设置为true；
+            timedOut = true;
+        } catch (InterruptedException retry) {
+            //如果是因为线程中断导致没有取到任务；则设置timedOut=false继续执行循环，取任务
+            timedOut = false;
         }
     }
+}
 ```
-
+```
+/**
+ * Decrements the workerCount field of ctl. This is called only on
+ * abrupt termination of a thread (see processWorkerExit). Other
+ * decrements are performed within getTask.
+ */
+private void decrementWorkerCount() {
+    do {} while (! compareAndDecrementWorkerCount(ctl.get()));
+}
+```
+```
+/**
+ * Attempts to CAS-decrement the workerCount field of ctl.
+ */
+private boolean compareAndDecrementWorkerCount(int expect) {
+    return ctl.compareAndSet(expect, expect - 1);
+}
+```
 #### Worker线程的退出processWorkerExit
 如果是处理任务发生异常导致的退出，则以自旋锁的方式将线程数减1； 
 
@@ -993,7 +1048,7 @@ final void runWorker(Worker w) {
 尝试终止线程池；
 
 
-###### 判断是否要新建workder线程；
+###### 判断是否要新建Worker线程；
 1. 如果是RUNNING或SHUTDOWN状态，且worker是异常结束，会直接执行AddWorker操作；
 2. 如果是RUNNING或SHUTDOWN状态，且worker是没有任务可做结束的，且allowCoreThreadTimeOut=false，且当前线程池中的线程数小于corePoolSize，则会创建addWorker线程；
 3. 判断是否要添加一个新的线程：线程池是RUNNING或SHUTDOWN状态，worker线程如果是异常结束的，则直接添加一个新线程；如果当前线程池中的线程数小于最小线程数，也会创建一个新线程；
@@ -1109,7 +1164,8 @@ public void shutdown() {
 当我们大量线程频繁创建重写了finalizer（）方法的对象的情况下，高并发情况下，它可能会导致你内存的溢出；虽然Finalizer线程优先级高，但是毕竟它只有一个线程；最典型的例子就是数据库连接池,proxool，对要释放资源的操作加了锁，并在finalized方法中调用该加锁方法，在高并发情况下，锁竞争严重，finalized竞争到锁的几率减少，finalized无法立即释放资源，越来越多的对象finalized()方法无法被执行，资源无法被回收，最终导致导致oom；所以覆盖finalized方法，执行一定要快，不能有锁竞争的操作，否则在高并发下死的很惨；
 
 
-（proxool使用了cglib，它用WrappedConnection代理实际的Conneciton。在运行WrappedConnection的方法时，包括其finalize方法，都会调用Conneciton.isClosed()方法去判断是否真的需要执行某些操作。不幸的是JDBC中的这个方法是同步的，锁是连接对象本身。于是， Finalizer线程回收刚执行过的WrappedConnection对象时就总会与还在使用Connection的各个工作线程争用锁。）
+（proxool使用了cglib，它用WrappedConnection代理实际的Conneciton。在运行WrappedConnection的方法时，包括其finalize方法，都会调用Conneciton.isClosed()方法去判断是否真的需要执行某些操作。不幸的是JDBC中的这个方法是同步的，锁是连接对象本身。于是， 
+Finalizer线程回收刚执行过的WrappedConnection对象时就总会与还在使用Connection的各个工作线程争用锁。）
 
 #### 线程池中线程的中断
 ###### 线程池的中断也有两个方法
@@ -1169,7 +1225,7 @@ STOP-》TIDYING 与SHUTDOWN-》TIDYING状态的转换，就是在该方法中实
 
 尝试终止线程池执行过程；
 
-一、重点内容先判断线程池的状态是否允许被终止
+##### 一、重点内容先判断线程池的状态是否允许被终止
 
 以下状态不可被终止：
 
@@ -1186,11 +1242,11 @@ STOP-》TIDYING 与SHUTDOWN-》TIDYING状态的转换，就是在该方法中实
 2. 如果线程池状态是STOP（该状态下，不接收新任务，不执行任务队列中的任务，并中断正在执行中的线程，可以被终止），向下进行。
 
 
-二、线程池状态可以被终止，如果线程池中仍然有线程，则尝试中断线程池中的线程
+##### 二、线程池状态可以被终止，如果线程池中仍然有线程，则尝试中断线程池中的线程
 
 则尝试中断一个线程然后返回,被中断的这个线程执行完成退出后，又会调用tryTerminate()方法，中断其它线程，直到线程池中的线程数为0，则继续往下执行；
 
-三、如果线程池中的线程为0，则将状态设置为TIDYING，设置成功后执行 terminated()方法，最后将线程状态设置为TERMINATED
+###### 三、如果线程池中的线程为0，则将状态设置为TIDYING，设置成功后执行 terminated()方法，最后将线程状态设置为TERMINATED
 源码如下：
 ```
     final void tryTerminate() {
@@ -1246,7 +1302,7 @@ STOP-》TIDYING 与SHUTDOWN-》TIDYING状态的转换，就是在该方法中实
 #### 拒绝策略
 以下两种情况会执行拒绝任务操作：
 1. 如果当前线程池状态为非RUNNING装状态
-2. 当队列满了，workder线程数到了最大值，而且没有空闲的worker线程执行任务：
+2. 当队列满了，Worker线程数到了最大值，而且没有空闲的worker线程执行任务：
 
 有内置的以下四种拒绝策略：
 - AbortPolicy 抛出异常RejectedExecutionException （默认策略）
@@ -1276,8 +1332,10 @@ public interface RejectedExecutionHandler {
     void rejectedExecution(Runnable r, ThreadPoolExecutor executor);
 }
 ```
+#### 线程状态
 
 线程池提供了一些方法监视线程池的状态,如下所示：
+
 ```
 ThreadPoolExecutor pool = new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<Runnable>(10));
 // 当前线程池中的工作线程数；也就是返回成员变量private final HashSet<Worker> workers = new HashSet<Worker>()的大小
@@ -1306,9 +1364,10 @@ pool.getTaskCount();
 注意任务执行失败也会计数，完成的任务数包含实行失败的任务；
 
 ##### 一个线程池实例管理类
-自己写了一个管理类，还不完善，先放这里：
+
 ```
-package com.zqz.studycheck.threadpool;
+package com.evan.juc.threadpool;
+
 
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -1322,11 +1381,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 连接池管理类
- * 
- * @author zqz
- * 
  */
-public class ZQZThreadPool extends ThreadPoolExecutor {
+public class ThreadPoolManager extends ThreadPoolExecutor {
 
     public static final AtomicBoolean lock = new AtomicBoolean();
 
@@ -1335,27 +1391,22 @@ public class ZQZThreadPool extends ThreadPoolExecutor {
 
     /**
      * 获取连接池实例
-     * 
-     * @param poolName
-     *            自定义连接池名称前缀 ，更好的区分不同的连接池；
-     * @param corePoolSize
-     *            核心线程数
-     * @param maximumPoolSize
-     *            最大线程数
-     * @param keepAliveTime
-     *            空闲线程存活时间，单位是秒
-     * @param workQueue
-     *            任务队列
+     *
+     * @param poolName        自定义连接池名称前缀 ，更好的区分不同的连接池；
+     * @param corePoolSize    核心线程数
+     * @param maximumPoolSize 最大线程数
+     * @param keepAliveTime   空闲线程存活时间，单位是秒
+     * @param workQueue       任务队列
      * @return
      */
     public static ThreadPoolExecutor getInstance(String poolName, int corePoolSize, int maximumPoolSize,
-            long keepAliveTime, BlockingQueue<Runnable> workQueue) {
+                                                 long keepAliveTime, BlockingQueue<Runnable> workQueue) {
         while (!lock.compareAndSet(false, true))
             ;
         ThreadPoolExecutor pool = poolManager.get(poolName);
         try {
             if (pool == null) {
-                pool = new ZQZThreadPool(poolName, corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS,
+                pool = new ThreadPoolManager(poolName, corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS,
                         workQueue, defaultThreadFactor);
                 poolManager.put(poolName, pool);
                 return pool;
@@ -1369,6 +1420,7 @@ public class ZQZThreadPool extends ThreadPoolExecutor {
 
     /**
      * 私有构造方法
+     *
      * @param poolName
      * @param corePoolSize
      * @param maximumPoolSize
@@ -1377,8 +1429,8 @@ public class ZQZThreadPool extends ThreadPoolExecutor {
      * @param workQueue
      * @param threadFactory
      */
-    private ZQZThreadPool(String poolName, int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit,
-            BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory) {
+    private ThreadPoolManager(String poolName, int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit,
+                              BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory);
         if (!poolManager.containsKey(poolName)) {
             poolManager.put(poolName, this);
@@ -1387,6 +1439,7 @@ public class ZQZThreadPool extends ThreadPoolExecutor {
 
     /**
      * 返回指定线程池状态
+     *
      * @param name
      * @return
      */
@@ -1401,7 +1454,6 @@ public class ZQZThreadPool extends ThreadPoolExecutor {
         // 队列中的任务；
         poolInfo.setQueueSize(pool.getQueue().size());
         // 线程正在执行的任务;
-        poolInfo.setActiveCount(pool.getActiveCount());
         // 已经执行完成的任务；
         poolInfo.setCompletedTaskCount(pool.getCompletedTaskCount());
         // 是否允许coreThread超时；
@@ -1447,12 +1499,13 @@ public class ZQZThreadPool extends ThreadPoolExecutor {
 
     /**
      * 测试
+     *
      * @param args
      */
     public static void main(String[] args) {
         String poolName = "test";
 
-        ThreadPoolExecutor pool = ZQZThreadPool.getInstance(poolName, 1, 10, 0, new ArrayBlockingQueue<Runnable>(10));
+        ThreadPoolExecutor pool = ThreadPoolManager.getInstance(poolName, 1, 10, 0, new ArrayBlockingQueue<Runnable>(10));
 
         pool.execute(new Runnable() {
 
@@ -1461,11 +1514,11 @@ public class ZQZThreadPool extends ThreadPoolExecutor {
             }
 
         });
-        PoolInfo poolInfo = ZQZThreadPool.monitor(poolName);
+        PoolInfo poolInfo = ThreadPoolManager.monitor(poolName);
         System.out.println(poolInfo.getPoolSize());
     }
 
+
 }
 
-            }
 ```
