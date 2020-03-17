@@ -1149,12 +1149,19 @@ public void shutdown() {
 ```
 这两个方法可以直接调用，来关闭线程池；shutdown方法还会在线程池被垃圾回收时调用,因为ThreadPoolExecuter重写了finalize方法
 ```
-  protected void finalize() {
-        shutdown();
-  }
-
+    protected void finalize() {
+        SecurityManager sm = System.getSecurityManager();
+        if (sm == null || acc == null) {
+            shutdown();
+        } else {
+            PrivilegedAction<Void> pa = () -> { shutdown(); return null; };
+            AccessController.doPrivileged(pa, acc);
+        }
+    }
 ```
 关于finalize方法说明：
+
+
 垃圾回收时，如果判断对象不可达，且覆盖了finalize方法，则会将对象放入到F-Queue队列 ，有一个名为”Finalizer”的守护线程执行finalize方法，它的优先级为8，做最后的清理工作，执行finalize方法完毕后，GC会再次判断该对象是否可达，若不可达，则进行回收，否则，对象复活
 注意：网上很多人说 ，Finalizer线程的优先级低，个人认为这是不对的，Finalizer线程在jdk1.8的优先级是8，比我们创建线程默认优先级5要高，之前其它版本的jdk我记得导出的线程栈信息里面优先级是5，忘记是哪个版本的jdk了，即使是5优先级也不比自建的线程默认优先级低，总之我没见过优先级低于5的Finalizer线程；
 
