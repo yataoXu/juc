@@ -27,6 +27,11 @@ java.lang.OutOfMemoryError: unable to create new native thread
 
 **解决办法**：使用线程池管理短时间执行完毕的大量线程，通过重用已存在的线程，降低线程创建和销毁造成的消耗，提高系统响应速度。
 
+使用线程池的好处
+1. 降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。
+2. 提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。
+3. 提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。
+
 ##### demo
 
 ```
@@ -201,8 +206,6 @@ public class ThreadPoolTest {
     }
 }
 ```
-
-
 
 
 
@@ -445,6 +448,28 @@ private long completedTaskCount;
         //如果任务为null直接抛出异常
         if (command == null)
             throw new NullPointerException();
+        /*
+         * Proceed in 3 steps:
+         *
+         * 1. If fewer than corePoolSize threads are running, try to
+         * start a new thread with the given command as its first
+         * task.  The call to addWorker atomically checks runState and
+         * workerCount, and so prevents false alarms that would add
+         * threads when it shouldn't, by returning false.
+         *
+         * 2. If a task can be successfully queued, then we still need
+         * to double-check whether we should have added a thread
+         * (because existing ones died since last checking) or that
+         * the pool shut down since entry into this method. So we
+         * recheck state and if necessary roll back the enqueuing if
+         * stopped, or start a new thread if there are none.
+         *
+         * 3. If we cannot queue task, then we try to add a new
+         * thread.  If it fails, we know we are shut down or saturated
+         * and so reject the task.
+         */
+
+
         //获取当前线程池的ctl值，不知道它作用的看前面说明
         int c = ctl.get();
 
@@ -467,11 +492,14 @@ private long completedTaskCount;
             //再次检查线程池的状态，如果线程池状态变了，非RUNNING状态下不会接收新的任务，需要将任务移除，成功从队列中删除任务，则执行reject方法处理任务；
             if (! isRunning(recheck) && remove(command))
                 reject(command);
-            else if (workerCountOf(recheck) == 0)//如果线程池的状态没有改变，且池中无线程
+
+            //如果线程池的状态没有改变，且池中无线程
             // 两种情况进入以该分支
             //1.线程池处于RUNNING状态，线程池中没有线程了，因为有新任务进入队列所以要创建工作线程（这时候新任务已经在队列中，所以下面创建worker线程时第一个参数，要执行的任务为null，只是创建一个新的工作线程并启动它，让它自己去队列中取任务执行）
             //2.线程池处于非RUNNING状态但是任务移除失败,导致任务队列中仍然有任务，但是线程池中的线程数为0，则创建新的工作线程，处理队列中的任务；
+            else if (workerCountOf(recheck) == 0)
                 addWorker(null, false);
+
         // 两种情况执行下面分支：
         // 1.非RUNNING状态拒绝新的任务,并且无法创建新的线程，则拒绝任务
         // 2.线程池处于RUNNING状态，线程池线程数量已经大于等于coresize，任务就需要放入队列，如果任务入队失败，说明队列满了，则创建新的线程，创建成功则新线程继续执行任务，如果创建失败说明线程池中线程数已经超过maximumPoolSize，则拒绝任务
@@ -482,101 +510,113 @@ private long completedTaskCount;
 
 ##### 往线程池添加线程addWorker方法
 往线程池中添加工作线程，线程会被封装成Worker对象，放入到works线程池中
-它的执行过程如下：
 
+它的执行过程如下：
 - 增加线程时，先判断当前线程池的状态允不允许创建新的线程，如果允许再判断线程池有没有达到 限制，如果条件都满足，才继续执行；
 - 先增加线程数计数ctl，增加计数成功后，才会去创建线程;
 - 创建线程是通过work对象来创建的，创建成功后，将work对象放入到works线程池中（就是一个hashSet）;
 - 添加完成后，更新largestPoolSize值（线程池中创建过的线程最大数量），最后启动线程，如果参数firstTask不为null，则执行第一个要执行的任务，然后循环去任务队列中取任务来执行；
 ---
+
 ##### 成功添加worker工作线程需要线程池处于以下两种状态中的一种
 1. 线程池处于RUNNING状态
 2. 线程池处于SHUTDOWN状态，且创建线程的时候没有传入新的任务（此状态下不接收新任务），且任务队列不为空（此状态下，要执行完任务队列中的剩余任务才能关闭）；
+
 ---
+
 ```
-    private boolean addWorker(Runnable firstTask, boolean core) {
-        //以下for循环，增加线程数计数，ctl，只增加计数，不增加线程，只有增加计数成功，才会增加线程
-        retry:
+private boolean addWorker(Runnable firstTask, boolean core) {
+    // 以下for循环，增加线程数计数，ctl，只增加计数，不增加线程，只有增加计数成功，才会增加线程
+    retry:
+    for (;;) {
+        int c = ctl.get();
+        int rs = runStateOf(c);
+        //这个代码块的判断，如果是STOP，TIDYING和TERMINATED这三种状态，都会返回false。(这几种状态不会接收新任务，也不再执行队列中的任务，中断当前执行的任务)
+        //如果是SHUTDOWN，firstTask不为空（SHUTDOWN状态下，不会接收新任务）或 者workQueue是空（队列里面都没有任务了，也就不需要线程了），返回false。
+        if (rs >= SHUTDOWN &&
+            ! (rs == SHUTDOWN &&
+               firstTask == null &&
+               ! workQueue.isEmpty()))
+            return false;
+        //只有满足以下两种条件才会继续创建worker线程对象
+        //1.RUNNING状态，
+        //2.shutdown状态，且firstTask为null（因为shutdown状态下不再接收新任务），队列不是空（shutdown状态下需要继续处理队列中的任务）
+         通过自旋的方式增加线程池线程数
         for (;;) {
-            int c = ctl.get();
-            int rs = runStateOf(c);
-            //这个代码块的判断，如果是STOP，TIDYING和TERMINATED这三种状态，都会返回false。(这几种状态不会接收新任务，也不再执行队列中的任务，中断当前执行的任务)
-            //如果是SHUTDOWN，firstTask不为空（SHUTDOWN状态下，不会接收新任务）或 者workQueue是空（队列里面都没有任务了，也就不需要线程了），返回false。
-            if (rs >= SHUTDOWN &&
-                ! (rs == SHUTDOWN &&
-                   firstTask == null &&
-                   ! workQueue.isEmpty()))
+            int wc = workerCountOf(c);
+            //1.如果线程数大于最大可创建的线程数CAPACITY，直接返回false；
+            //2.判断当前是要根据corePoolSize，还是maximumPoolSize进行创建线程（corePoolSize是基本线程池大小，未达到corePoolSize前按照corePollSize来限制线程池大小,达到corePoolSize后，并且任务队列也满了，才会按照maximumPoolSize限制线程池大小）
+            if (wc >= CAPACITY ||
+                wc >= (core ? corePoolSize : maximumPoolSize))
                 return false;
-            //只有满足以下两种条件才会继续创建worker线程对象
-            //1.RUNNING状态，
-            //2.shutdown状态，且firstTask为null（因为shutdown状态下不再接收新任务），队列不是空（shutdown状态下需要继续处理队列中的任务）
-             通过自旋的方式增加线程池线程数
-            for (;;) {
-                int wc = workerCountOf(c);
-                //1.如果线程数大于最大可创建的线程数CAPACITY，直接返回false；
-                //2.判断当前是要根据corePoolSize，还是maximumPoolSize进行创建线程（corePoolSize是基本线程池大小，未达到corePoolSize前按照corePollSize来限制线程池大小,达到corePoolSize后，并且任务队列也满了，才会按照maximumPoolSize限制线程池大小）
-                if (wc >= CAPACITY ||
-                    wc >= (core ? corePoolSize : maximumPoolSize))
-                    return false;
-                if (compareAndIncrementWorkerCount(c))//将WorkerCount通过CAS操作增加1，成功的话直接跳出两层循环；
-                    break retry;
-                c = ctl.get();  // Re-read ctl
-                if (runStateOf(c) != rs)//否则则判断当前线程池的状态，如果现在获取到的状态与进入自旋的状态不一致的话，那么则通过continue retry重新进行状态的判断
-                    continue retry;
-                // else CAS failed due to workerCount change; retry inner loop
-            }
-        }
-
-        //以下代码块是创建Worker线程对象，并启动
-
-        boolean workerStarted = false;
-        boolean workerAdded = false;
-        Worker w = null;
-        try {
-            w = new Worker(firstTask); //创建一个新的Worker对象
-            final Thread t = w.thread;
-            if (t != null) {
-                final ReentrantLock mainLock = this.mainLock;
-                mainLock.lock(); //获取线程池的重入锁后，
-                try {
-                    // Recheck while holding lock.
-                    // Back out on ThreadFactory failure or if
-                    // shut down before lock acquired.
-                    int rs = runStateOf(ctl.get());
-
-                    // RUNNING状态 || SHUTDOWN状态下，没有新的任务，只是处理任务队列中剩余的任务；
-                    if (rs < SHUTDOWN ||
-                        (rs == SHUTDOWN && firstTask == null)) {
-                        //如果线程是活动状态，直接抛出异常，因为线程刚创建，还没有执行start方法，一定不会是活动状态； 
-                        if (t.isAlive())
-                            throw new IllegalThreadStateException();
-                        // 将新启动的线程添加到线程池中
-                        workers.add(w); 
-                        // 更新largestPoolSize的值，largestPoolSize成员变量保存线程池中创建过的线程最大数量
-                        int s = workers.size();
-                        //将线程池中创建过的线程最大数量，设置给largestPoolSize，可以通过getLargestPoolSize()方法获取，注意这个方法只能在 ThreadPoolExecutor中调用，Executer，ExecuterService，AbstractExecutorService中都是没有这个方法的
-                        if (s > largestPoolSize)
-                            largestPoolSize = s;
-                        workerAdded = true;
-                    }
-                } finally {
-                    mainLock.unlock();
-                }
-                // 启动新添加的线程，这个线程首先执行firstTask，然后不停的从队列中取任务执行
-                // 当等待keepAlieTime还没有任务执行则该线程结束。见runWoker和getTask方法的代码。
-                if (workerAdded) {
-                    t.start();
-                    workerStarted = true;
-                }
-            }
-        }finally {
-            if (! workerStarted)
-                addWorkerFailed(w);
-            }
-            return workerStarted;
+            if (compareAndIncrementWorkerCount(c))//将WorkerCount通过CAS操作增加1，成功的话直接跳出两层循环；
+                break retry;
+            c = ctl.get();  // Re-read ctl
+            if (runStateOf(c) != rs)//否则则判断当前线程池的状态，如果现在获取到的状态与进入自旋的状态不一致的话，那么则通过continue retry重新进行状态的判断
+                continue retry;
+            // else CAS failed due to workerCount change; retry inner loop
         }
     }
+
+    //以下代码块是创建Worker线程对象，并启动
+
+    boolean workerStarted = false;
+    boolean workerAdded = false;
+    Worker w = null;
+    try {
+        w = new Worker(firstTask); //创建一个新的Worker对象
+        final Thread t = w.thread;
+        if (t != null) {
+            final ReentrantLock mainLock = this.mainLock;
+            mainLock.lock(); //获取线程池的重入锁后，
+            try {
+                // Recheck while holding lock.
+                // Back out on ThreadFactory failure or if
+                // shut down before lock acquired.
+                int rs = runStateOf(ctl.get());
+
+                // RUNNING状态 || SHUTDOWN状态下，没有新的任务，只是处理任务队列中剩余的任务；
+                if (rs < SHUTDOWN ||
+                    (rs == SHUTDOWN && firstTask == null)) {
+                    //如果线程是活动状态，直接抛出异常，因为线程刚创建，还没有执行start方法，一定不会是活动状态； 
+                    if (t.isAlive())
+                        throw new IllegalThreadStateException();
+                    // 将新启动的线程添加到线程池中
+                    workers.add(w); 
+                    // 更新largestPoolSize的值，largestPoolSize成员变量保存线程池中创建过的线程最大数量
+                    int s = workers.size();
+                    //将线程池中创建过的线程最大数量，设置给largestPoolSize，可以通过getLargestPoolSize()方法获取，注意这个方法只能在 ThreadPoolExecutor中调用，Executer，ExecuterService，AbstractExecutorService中都是没有这个方法的
+                    if (s > largestPoolSize)
+                        largestPoolSize = s;
+                    workerAdded = true;
+                }
+            } finally {
+                mainLock.unlock();
+            }
+            // 启动新添加的线程，这个线程首先执行firstTask，然后不停的从队列中取任务执行
+            // 当等待keepAlieTime还没有任务执行则该线程结束。见runWoker和getTask方法的代码。
+            if (workerAdded) {
+                t.start();
+                workerStarted = true;
+            }
+        }
+    }finally {
+        if (! workerStarted)
+            addWorkerFailed(w);
+        }
+        return workerStarted;
+    }
+}
 ```
+
+---
+## retry
+
+这retry就是一个标记，标记对一个循环方法的操作（continue和break）处理点，功能类似于goto，所以retry一般都是伴随着for循环出现，retry:标记的下一行就是for循环，在for循环里面调用continue（或者break）再紧接着retry标记时，就表示从这个地方开始执行continue（或者break）操作
+
+---
+
+
 
 ## 内部类Worker
 它是ThreadPoolExecutor的一个内部类

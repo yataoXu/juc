@@ -1,8 +1,6 @@
 package com.evan.juc.threadpool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @Description
@@ -16,29 +14,32 @@ public class CachedThreadDemo {
         ExecutorService threadPool = Executors.newCachedThreadPool();//一池N个线程
 
 
-        threadPool.submit(() -> {
-            for (int i = 0; i < 100; i++) {
-                System.out.println(Thread.currentThread().getName() + ": " + i);
-                try {
-                    TimeUnit.SECONDS.sleep(3);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
-            }
-        });
 
-        threadPool.submit(() -> {
-            for (int i = 0; i < 100; i++) {
-                System.out.println(Thread.currentThread().getName() + ": " + i);
-                try {
-                    TimeUnit.SECONDS.sleep(3);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
+//
+//        threadPool.submit(() -> {
+//            for (int i = 0; i < 100; i++) {
+//                System.out.println(Thread.currentThread().getName() + ": " + i);
+//                try {
+//                    TimeUnit.SECONDS.sleep(3);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        });
+//
+//        threadPool.submit(() -> {
+//            for (int i = 0; i < 100; i++) {
+//                System.out.println(Thread.currentThread().getName() + ": " + i);
+//                try {
+//                    TimeUnit.SECONDS.sleep(3);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        });
 //        threadPool.shutdown();
         try {
             for (int i = 0; i < 10; i++) {
