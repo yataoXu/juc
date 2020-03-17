@@ -14,6 +14,32 @@ public class CachedThreadDemo {
 
     public static void main(String[] args) {
         ExecutorService threadPool = Executors.newCachedThreadPool();//一池N个线程
+
+
+        threadPool.submit(() -> {
+            for (int i = 0; i < 100; i++) {
+                System.out.println(Thread.currentThread().getName() + ": " + i);
+                try {
+                    TimeUnit.SECONDS.sleep(3);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        threadPool.submit(() -> {
+            for (int i = 0; i < 100; i++) {
+                System.out.println(Thread.currentThread().getName() + ": " + i);
+                try {
+                    TimeUnit.SECONDS.sleep(3);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+//        threadPool.shutdown();
         try {
             for (int i = 0; i < 10; i++) {
 
