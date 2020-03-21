@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AAsList {
+public class ArraysAsListDemo {
     public static void main(String[] args) {
         List<String> list = Arrays.asList("Apple", "Orange");
         list.forEach(System.out::println);
@@ -45,6 +45,11 @@ public class AAsList {
         List<Integer> collect1 = Arrays.stream(myArray2).boxed().collect(Collectors.toList());
         collect1.add(4);
         collect1.forEach(System.out::println);
+
+        // type 4
+//        import org.springframework.util.CollectionUtils;
+//        int[] myArray2 = {1, 2, 3};
+//        CollectionUtils.arrayToList(myArray2);
 
 
 
