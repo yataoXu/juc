@@ -18,7 +18,6 @@ public class ProxyDemo2 {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args)
                     throws Throwable {
-                // TODO Auto-generated method stub
                 return null;
             }
 
@@ -31,7 +30,6 @@ public class ProxyDemo2 {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args)
                     throws Throwable {
-                // TODO Auto-generated method stub
                 return null;
             }
 
@@ -46,7 +44,6 @@ public class ProxyDemo2 {
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args)
                             throws Throwable {
-                        // TODO Auto-generated method stub
                         Object retVal=method.invoke(target, args);//此处可以修改参数哟！
                         return retVal;
                     }
@@ -55,7 +52,9 @@ public class ProxyDemo2 {
         collection3.add("123");
         collection3.add("123");
         System.out.println(collection3.size());
-        System.out.println(collection3.getClass().getName());//为什么返回的类名不是ArrayList?因为只有这三个hashCode,equals,toString从Object继承的方法交给Handler处理，其余的方法Proxy有处理的方式。
+        //为什么返回的类名不是ArrayList?因为只有这三个hashCode,equals,toString从Object继承的方法交给Handler处理，其余的方法Proxy有处理的方式。
+        System.out.println(collection3.getClass().getName());
+
     }
 
 }
