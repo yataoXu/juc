@@ -27,7 +27,7 @@ public class ProxyDemo {
             for (Class parame : parames) {
                 stringBuilder.append(parame.getName()).append(",");
             }
-            if (parames != null && parames.length != 0)//为什么只用null判断不行呢？？？
+            if (parames != null && parames.length != 0)
                 stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             stringBuilder.append(')');
             System.out.println(stringBuilder.toString());
@@ -47,7 +47,7 @@ public class ProxyDemo {
                 stringBuilder.append(parame.getName());
                 stringBuilder.append(",");
             }
-            if (parames != null && parames.length != 0)//为什么只用null判断不行呢？？？
+            if (parames != null && parames.length != 0)
                 stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             stringBuilder.append(')');
             System.out.println(stringBuilder.toString());
