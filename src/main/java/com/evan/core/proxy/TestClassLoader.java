@@ -1,5 +1,9 @@
 package com.evan.core.proxy;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @Description
  * @ClassName TestClassLoader
@@ -18,8 +22,9 @@ public class TestClassLoader {
         Class c2 = T1.class;
         System.out.println(c2);
 
-
-
+        Class<?>[] interfaces = t.getClass().getInterfaces();
+        List<Class<?>> collect = Arrays.stream(interfaces).collect(Collectors.toList());
+        collect.forEach(System.out::println);
 
 
     }

@@ -20,7 +20,6 @@ public class ProxyDemo2 {
                     throws Throwable {
                 return null;
             }
-
         }
         Collection collection1=(Collection)constructor.newInstance(new MyInvocationHandler());
 
@@ -52,9 +51,9 @@ public class ProxyDemo2 {
         collection3.add("123");
         collection3.add("123");
         System.out.println(collection3.size());
-        //为什么返回的类名不是ArrayList?因为只有这三个hashCode,equals,toString从Object继承的方法交给Handler处理，其余的方法Proxy有处理的方式。
+        //为什么返回的类名不是ArrayList?因为只有这三个hashCode,equals,toString从Object继承的方法交给Handler处理，
+        // 其余的方法Proxy有处理的方式。
         System.out.println(collection3.getClass().getName());
 
     }
-
 }
