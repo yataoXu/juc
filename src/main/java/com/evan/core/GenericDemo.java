@@ -1,46 +1,11 @@
-//package com.evan.core;
 //
+//// 查询可以返回Cursor<T>类型的数据，类似于JDBC里的ResultSet类，
+//// 当查询百万级的数据的时候，使用游标可以节省内存的消耗，不需要一次性取出所有数据，可以进行逐条处理或逐条取出部分批量处理。
+//public interface Cursor<T> extends Closeable, Iterable<T> {
 //
+//    boolean isOpen();
 //
-//import java.util.ArrayList;
-//import java.util.List;
+//    boolean isConsumed();
 //
-///**
-// * @Description
-// * @ClassName GenericDemo
-// * @Author Evan
-// * @date 2020.02.18 10:36
-// */
-//public class GenericDemo {
-//
-//    public void test(List<?> list){
-////        list.add("ddd");
-//        for (int i = 0; i < list.size(); i++) {
-//            System.out.println(list.get(i));
-//        }
-//    }
-//
-//    public static void main(String[] args) {
-//        List list = new ArrayList();
-//        list.add("qq");
-//        list.add("123");
-//        list.add("test");
-//        list.add(new Object());
-//        list.add(100);
-//
-////        list.stream().forEach(System.out::println); //没有问题
-////
-////        for (int i = 0; i < list.size(); i++) {
-////            String name = (String) list.get(i); //Exception in thread "main" java.lang.ClassCastException: java.lang.Object cannot be cast to java.lang.String
-////            System.out.println(name);
-////        }
-//
-//
-//        Tuple
-//
-//    }
-//}
-//
-//class Foo{
-//
+//    int getCurrentIndex();
 //}
