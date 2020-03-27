@@ -16,6 +16,7 @@ public class AtomicCounter {
     private AtomicInteger integer  = new AtomicInteger();
 
 
+
     public AtomicInteger getInteger() {
         return integer;
     }

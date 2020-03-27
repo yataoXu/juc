@@ -1,5 +1,8 @@
 package com.evan.juc.lock;
+import	java.util.concurrent.CopyOnWriteArraySet;
+import	java.util.HashMap;
 
+import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -24,6 +27,13 @@ public class MyFairLock extends Thread {
     }
 
     public static void main(String[] args) {
+
+
+        Map<String,String> map = new HashMap();
+        map.put("a","a");
+
+
+        CopyOnWriteArraySet copy = new CopyOnWriteArraySet();
         MyFairLock myFairLock = new MyFairLock();
         Runnable runnable = () -> {
             System.out.println(Thread.currentThread().getName() + "启动");

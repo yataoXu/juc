@@ -1,7 +1,6 @@
-//package java.lang;
-//
-//public class String {
-//    static {
-//        System.out.println("自定义的String");
-//    }
-//}
+//try (BufferedReader br = new BufferedReader(…);
+//        BufferedWriter writer = new BufferedWriter(…)) {// Try-with-resources
+//// do something
+//        catch ( IOException | XEception e) {// Multiple catch
+//// Handle it
+//        }
