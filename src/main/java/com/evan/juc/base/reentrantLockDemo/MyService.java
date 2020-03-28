@@ -1,7 +1,7 @@
 package com.evan.juc.base.reentrantLockDemo;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -10,46 +10,71 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Author Evan
  * @date 2020.03.27 22:54
  */
-public class MyService {
+public class MyService implements Runnable {
 
-    private Lock lock = new ReentrantLock();
-    private Condition condition = lock.newCondition();
+    protected ReentrantLock lock;
+    protected Condition conditionA;
+    protected Condition conditionB;
 
+    public MyService(ReentrantLock lock,Condition conditionA,Condition conditionB){
+        this.lock = lock;
+        this.conditionA = conditionA;
+        this.conditionB = conditionB;
+    }
 
-    private int shareData;
-
-
-    public void await() {
+    public void await_A(){
         try {
             lock.lock();
-            System.out.println("awaits时间为" + System.currentTimeMillis());
-            condition.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println(Thread.currentThread().getName()+" await_A time is "+System.currentTimeMillis());
+            conditionA.await();
+            System.out.println(Thread.currentThread().getName()+" after await_A info...");
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
         } finally {
             lock.unlock();
-            System.out.println("await锁被释放了！");
         }
-
     }
 
-    public void signal() {
+    public void await_B(){
         try {
             lock.lock();
-            System.out.println("signal时间为" + System.nanoTime());
-            condition.signal();
-            for (int i = 0; i < 5; i++) {
-                shareData++;
-                System.out.println("ThreadName = " + Thread.currentThread().getName() + " " + (i + 1));
-            }
+            System.out.println(Thread.currentThread().getName()+" await_B time is "+System.currentTimeMillis());
+            conditionB.await();
+            System.out.println(Thread.currentThread().getName()+" after_B await info...");
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
         } finally {
             lock.unlock();
-            System.out.println("await锁被释放了！");
         }
-
     }
 
-    public int getShareData() {
-        return shareData;
+    public void signal_A(){
+        try {
+            lock.lock();
+            System.out.println(Thread.currentThread().getName()+" signal_A time is "+System.currentTimeMillis());
+            conditionA.signal();
+        } finally {
+            lock.unlock();
+        }
     }
+
+    public void signal_B(){
+        try {
+            lock.lock();
+            System.out.println(Thread.currentThread().getName()+" signal_B time is "+System.currentTimeMillis());
+            conditionB.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void run() {
+        String tname = Thread.currentThread().getName();
+        if (tname.equals("A")) {
+            await_A();
+        } else if (tname.equals("B")) {
+            await_B();
+        }
+    }
+
 }

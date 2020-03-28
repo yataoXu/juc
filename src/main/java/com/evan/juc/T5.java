@@ -1,13 +1,7 @@
-package com.evan.jvm;
+package com.evan.juc;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Description
- * @ClassName T5
- * @Author Evan
- * @date 2020.02.06 18:56
- */
 class MyNumber {
     volatile int num = 10;
 
