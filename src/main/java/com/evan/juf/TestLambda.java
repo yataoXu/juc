@@ -94,10 +94,22 @@ public class TestLambda {
     }
 
     @Test
-    public void test05(){
-        List<Employee> list = filterEmployee(employees,(employee)->{return employee.getSalary()<=400;});
+    public void test05() {
+        List<Employee> list = filterEmployee(employees, (employee) -> {
+            return employee.getSalary() <= 400;
+        });
 
         list.stream().forEach(System.out::println);
+    }
+
+    @Test
+    public void test06() {
+
+        List<String> list = new ArrayList<>(); // 类型推断
+
+//        int[] ints = new int[]{1,2,3,4};
+        int[] ints = {1, 2, 3}; // 省略new int[] 也是类型推断
+
     }
 
 }
