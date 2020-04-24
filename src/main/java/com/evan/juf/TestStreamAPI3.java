@@ -36,8 +36,8 @@ public class TestStreamAPI3 {
         list.stream().map(Person::getUsername).forEach(System.out::println);
         System.out.println("---------");
 
-        Stream<Stream<Character>> rStream = list.stream().map((p) -> TestStreamAPI3.filterCharacter(p.getUsername()));
-        rStream.forEach((sm) -> sm.forEach(System.out::println));
+//        Stream<Stream<Character>> rStream = list.stream().map((p) -> TestStreamAPI3.filterCharacter(p.getUsername()));
+//        rStream.forEach((sm) -> sm.forEach(System.out::println));
     }
 
     //map() & flatMap()的区别

@@ -8,7 +8,6 @@ import lombok.Data;
  * @Author Evan
  * @date 2020.03.25 13:08
  */
-@Data
 public class Counter {
      int count = 0;
 
@@ -20,4 +19,7 @@ public class Counter {
         count--;
     }
 
+    public int getCount() {
+        return count;
+    }
 }
