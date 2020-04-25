@@ -3,6 +3,7 @@ package com.evan.core.base.optionalDemo;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import lombok.ToString;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -96,14 +97,19 @@ public class OptionalTest {
     // 如果对象的初始值不是 null，那么默认值会被忽略
     @Test
     public void whenValueNotNull_thenIgnoreDefault() {
-        User user = new User("john@gmail.com","1234");
+        User user = new User("john@gmail.com", "1234");
         User user2 = new User("anna@gmail.com", "1234");
         User result = Optional.ofNullable(user).orElse(user2);
 
         assertEquals("john@gmail.com", result.getEmail());
     }
 
+    // 流式调用
+    @Test
+    public void whenFilter_thenOk() {
+        UserAddressDetail user = new UserAddressDetail();
 
-
-
+        String result = Optional.ofNullable(user).flatMap(u -> u.getAddress()).flatMap(a -> a.getCountry()).flatMap(c->c.getName()).orElse("default");
+        assertEquals(result, "default");
+    }
 }
