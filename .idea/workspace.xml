@@ -2,148 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f8bfce-1c97-4ff7-9cbe-9a13f1ce4060" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/BlockingQueueDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/concurrent/BlockingQueue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="231" column="9" selection-start-line="231" selection-start-column="9" selection-end-line="231" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/CallableDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2" selection-end-line="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/CyclicBarrierDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="14" column="41" selection-end-line="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/SemaphoreDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/ReadWriteLockDeomo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1408">
-              <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/RandomDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Random.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1540">
-              <caret line="103" column="11" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
-              <folding>
-                <element signature="e#3504#3505#0" expanded="true" />
-                <element signature="e#3562#3563#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Thread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14850">
-              <caret line="730" column="33" selection-start-line="730" selection-end-line="731" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/concurrent/Callable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,126 +37,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/SuperClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/SubClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/Test01.java" />
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/LockDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/LambdaExpressDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/LockDemo1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/NoSafeDemo.java" />
-        <option value="$PROJECT_DIR$/Note.md" />
-        <option value="$PROJECT_DIR$/src/main/java/seven/one/Lock8Demo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/Lock8Demo.java" />
-        <option value="$PROJECT_DIR$/Note1.md" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/ProductConsumerDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/ProductConsumerDemo1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/ConditionDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/CallableDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/jvm/MyObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/jvm/T2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/jvm/TestTransferValue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/jvm/T3.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/jvm/T4.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/jvm/T5.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/jvm/dd.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/jvm/VolatileDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/ReSortSeqDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/CountDowmLatchDemp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/CountDowmLatchDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/CyclicBarrierDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/RandomDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/SemaphoreDemo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/ReadWriteLockDeomo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/evan/juc/BlockingQueueDemo.java" />
-      </list>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../tool/apache-maven-3.6.2" />
+        <option name="userSettingsFile" value="C:\tool\apache-maven-3.6.2\conf\settings_aliyun.xml" />
+      </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="385" />
-    <option name="y" value="67" />
-    <option name="width" value="697" />
-    <option name="height" value="735" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
+  <component name="ProjectId" id="1bc0QMgyt1q52G04OKbbUjHvJ9z" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="juc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="juc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="juc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="juc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="juc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="evan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="juc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="evan" type="462c0819:PsiDirectoryNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="juc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="evan" type="462c0819:PsiDirectoryNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-              <item name="CallableDemo.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="juc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="juc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="evan" type="462c0819:PsiDirectoryNode" />
-              <item name="jvm" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -298,49 +68,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.BlockingQueueDemo">
+  <component name="RunManager" selected="Application.TestType01">
     <configuration name="BlockingQueueDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.evan.juc.BlockingQueueDemo" />
-      <module name="classloading" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.evan.juc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CyclicBarrierDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.CyclicBarrierDemo" />
-      <module name="classloading" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.evan.juc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RandomDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.RandomDemo" />
       <module name="classloading" />
       <extension name="coverage">
         <pattern>
@@ -378,22 +110,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestType" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.core.base.itype.TestType" />
+      <module name="juc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.evan.core.base.itype.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestType01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.core.base.itype.TestType01" />
+      <module name="juc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.evan.core.base.itype.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.CyclicBarrierDemo" />
       <item itemvalue="Application.SemaphoreDemo" />
-      <item itemvalue="Application.RandomDemo" />
       <item itemvalue="Application.ReadWriteLockDeomo" />
       <item itemvalue="Application.BlockingQueueDemo" />
+      <item itemvalue="Application.TestType" />
+      <item itemvalue="Application.TestType01" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestType01" />
+        <item itemvalue="Application.TestType" />
         <item itemvalue="Application.BlockingQueueDemo" />
         <item itemvalue="Application.ReadWriteLockDeomo" />
         <item itemvalue="Application.SemaphoreDemo" />
-        <item itemvalue="Application.RandomDemo" />
-        <item itemvalue="Application.CyclicBarrierDemo" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -418,6 +179,9 @@
       <workItem from="1581133177235" duration="4629000" />
       <workItem from="1581148578467" duration="1191000" />
       <workItem from="1581152231631" duration="1050000" />
+      <workItem from="1588916059506" duration="3758000" />
+      <workItem from="1588988287464" duration="598000" />
+      <workItem from="1589117822388" duration="532000" />
     </task>
     <task id="LOCAL-00001" summary="同步">
       <created>1580991728920</created>
@@ -443,543 +207,55 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55040000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988399" visible="true" weight="0.19742814" />
-      <window_info id="Structure" order="1" sideWeight="0.5011601" side_tool="true" weight="0.17776097" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43934426" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.452459" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32786885" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="aiXcoder" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32980332" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="同步" />
     <MESSAGE value="juc" />
     <option name="LAST_COMMIT_MESSAGE" value="juc" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1588916082855">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588916082855" />
+    <state width="1876" height="352" key="GridCell.Tab.0.bottom" timestamp="1588988252050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588988252050" />
+    <state width="1876" height="352" key="GridCell.Tab.0.center" timestamp="1588988252050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="352" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588988252050" />
+    <state width="1876" height="352" key="GridCell.Tab.0.left" timestamp="1588988252050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="352" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588988252050" />
+    <state width="1876" height="352" key="GridCell.Tab.0.right" timestamp="1588988252050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="352" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588988252050" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1588916088001">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588916088001" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/evan/core/base/itype/TestType01.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/juc$T4.ic" NAME="T4 Coverage Results" MODIFIED="1580966985169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.evan.jvm.*</FILTER>
     </SUITE>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/SuperClass.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/SubClass.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/LockDemo.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/Test.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Runnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="32" column="66" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/LockDemo1.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/LambdaExpressDemo.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/Test01.java" />
-    <entry file="uml://JAVA/java.util.concurrent.CopyOnWriteArrayList">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>java.util.concurrent.CopyOnWriteArrayList</OriginalElement>
-          <nodes>
-            <node x="134.2045454545455" y="164.0">java.util.RandomAccess</node>
-            <node x="40.204545454545496" y="164.0">java.util.List</node>
-            <node x="284.2045454545455" y="164.0">java.lang.Cloneable</node>
-            <node x="0.0" y="326.0">java.util.Vector</node>
-            <node x="39.47424242424245" y="82.0">java.util.Collection</node>
-            <node x="46.47424242424245" y="0.0">java.lang.Iterable</node>
-            <node x="466.7159090909091" y="326.0">java.util.ArrayList</node>
-            <node x="413.2045454545455" y="164.0">java.io.Serializable</node>
-            <node x="162.89090909090913" y="326.0">java.util.concurrent.CopyOnWriteArrayList</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="java.util.ArrayList" target="java.util.Collection">
-              <point x="43.60000000000002" y="-16.0" />
-              <point x="564.8159090909091" y="306.0" />
-              <point x="578.3909090909092" y="306.0" />
-              <point x="578.3909090909092" y="139.0" />
-              <point x="136.1409090909091" y="139.0" />
-              <point x="38.66666666666666" y="16.0" />
-            </edge>
-            <edge source="java.util.ArrayList" target="java.lang.Cloneable">
-              <point x="0.0" y="-16.0" />
-              <point x="521.2159090909091" y="226.0" />
-              <point x="375.03787878787887" y="226.0" />
-              <point x="36.33333333333337" y="16.0" />
-            </edge>
-            <edge source="java.util.concurrent.CopyOnWriteArrayList" target="java.util.List">
-              <point x="-69.75" y="-16.0" />
-              <point x="186.14090909090913" y="256.0" />
-              <point x="77.2045454545455" y="256.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.Vector" target="java.util.List">
-              <point x="-17.6" y="-16.0" />
-              <point x="26.400000000000006" y="256.0" />
-              <point x="52.53787878787881" y="256.0" />
-              <point x="-24.66666666666667" y="16.0" />
-            </edge>
-            <edge source="java.util.ArrayList" target="java.io.Serializable">
-              <point x="21.799999999999955" y="-16.0" />
-              <point x="543.0159090909091" y="216.0" />
-              <point x="521.5378787878789" y="216.0" />
-              <point x="43.33333333333337" y="16.0" />
-            </edge>
-            <edge source="java.util.concurrent.CopyOnWriteArrayList" target="java.util.RandomAccess">
-              <point x="-23.25" y="-16.0" />
-              <point x="232.64090909090913" y="266.0" />
-              <point x="199.2045454545455" y="266.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.concurrent.CopyOnWriteArrayList" target="java.lang.Cloneable">
-              <point x="23.25" y="-16.0" />
-              <point x="279.14090909090913" y="286.0" />
-              <point x="338.7045454545455" y="286.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.Vector" target="java.util.RandomAccess">
-              <point x="0.0" y="-16.0" />
-              <point x="44.0" y="266.0" />
-              <point x="155.87121212121215" y="266.0" />
-              <point x="-43.33333333333334" y="16.0" />
-            </edge>
-            <edge source="java.util.Vector" target="java.io.Serializable">
-              <point x="35.2" y="-16.0" />
-              <point x="79.19999999999999" y="296.0" />
-              <point x="434.8712121212122" y="296.0" />
-              <point x="-43.333333333333314" y="16.0" />
-            </edge>
-            <edge source="java.util.Vector" target="java.lang.Cloneable">
-              <point x="17.6" y="-16.0" />
-              <point x="61.599999999999994" y="276.0" />
-              <point x="302.3712121212122" y="276.0" />
-              <point x="-36.333333333333314" y="16.0" />
-            </edge>
-            <edge source="java.util.ArrayList" target="java.util.RandomAccess">
-              <point x="-21.799999999999955" y="-16.0" />
-              <point x="499.41590909090917" y="236.0" />
-              <point x="242.53787878787884" y="236.0" />
-              <point x="43.33333333333334" y="16.0" />
-            </edge>
-            <edge source="java.util.Vector" target="java.util.Collection">
-              <point x="-35.19999999999999" y="-16.0" />
-              <point x="8.80000000000004" y="139.0" />
-              <point x="58.80757575757579" y="139.0" />
-              <point x="-38.66666666666666" y="16.0" />
-            </edge>
-            <edge source="java.util.List" target="java.util.Collection">
-              <point x="0.0" y="-16.0" />
-              <point x="77.2045454545455" y="139.0" />
-              <point x="97.47424242424245" y="139.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.Collection" target="java.lang.Iterable">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.concurrent.CopyOnWriteArrayList" target="java.io.Serializable">
-              <point x="69.75" y="-16.0" />
-              <point x="325.64090909090913" y="306.0" />
-              <point x="478.2045454545455" y="306.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.ArrayList" target="java.util.List">
-              <point x="-43.599999999999966" y="-16.0" />
-              <point x="477.61590909090916" y="246.0" />
-              <point x="101.87121212121218" y="246.0" />
-              <point x="24.66666666666667" y="16.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-154.0" y="124.0" />
-          <SelectedNodes>
-            <node>java.util.ArrayList</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/NoSafeDemo.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/seven/one/Lock8Demo.java" />
-    <entry file="file://$PROJECT_DIR$/Note.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="11968">
-            <caret line="544" column="61" selection-start-line="544" selection-start-column="61" selection-end-line="544" selection-end-column="61" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/Lock8Demo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9878">
-          <caret line="476" column="1" selection-start-line="476" selection-start-column="1" selection-end-line="488" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Note1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="8932">
-            <caret line="406" selection-start-line="406" selection-end-line="406" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12694">
-          <caret line="623" column="7" selection-start-line="623" selection-start-column="7" selection-end-line="623" selection-end-column="7" />
-          <folding>
-            <element signature="e#19327#19328#0" expanded="true" />
-            <element signature="e#19410#19411#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/HashSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="218" selection-start-line="218" selection-end-line="221" />
-          <folding>
-            <element signature="e#3740#3741#0" expanded="true" />
-            <element signature="e#3777#3778#0" expanded="true" />
-            <element signature="e#8064#8065#0" expanded="true" />
-            <element signature="e#8112#8113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4708">
-          <caret line="237" column="12" selection-start-line="237" selection-start-column="12" selection-end-line="237" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/concurrent/CopyOnWriteArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="101" selection-start-line="101" selection-end-line="107" selection-end-column="5" />
-          <folding>
-            <element signature="e#3422#3423#0" expanded="true" />
-            <element signature="e#3450#3451#0" expanded="true" />
-            <element signature="e#3528#3529#0" expanded="true" />
-            <element signature="e#3553#3554#0" expanded="true" />
-            <element signature="e#3636#3637#0" expanded="true" />
-            <element signature="e#3675#3676#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4422">
-          <caret line="229" column="17" selection-start-line="229" selection-start-column="17" selection-end-line="229" selection-end-column="17" />
-          <folding>
-            <element signature="e#6283#6284#0" expanded="true" />
-            <element signature="e#6351#6352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/java.util.concurrent.FutureTask">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>java.util.concurrent.FutureTask</OriginalElement>
-          <nodes>
-            <node x="75.0" y="164.0">java.util.concurrent.RunnableFuture</node>
-            <node x="0.0" y="0.0">java.lang.FunctionalInterface</node>
-            <node x="160.5" y="82.0">java.util.concurrent.Future</node>
-            <node x="89.0" y="246.0">java.util.concurrent.FutureTask</node>
-            <node x="38.5" y="82.0">java.lang.Runnable</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="java.lang.Runnable" target="java.lang.FunctionalInterface">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.concurrent.RunnableFuture" target="java.lang.Runnable">
-              <point x="-36.0" y="-16.0" />
-              <point x="111.0" y="139.0" />
-              <point x="89.5" y="139.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.concurrent.RunnableFuture" target="java.util.concurrent.Future">
-              <point x="36.0" y="-16.0" />
-              <point x="183.0" y="139.0" />
-              <point x="204.5" y="139.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="java.util.concurrent.FutureTask" target="java.util.concurrent.RunnableFuture">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-176.0" y="200.0" />
-          <SelectedNodes>
-            <node>java.util.concurrent.FutureTask</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/ProductConsumerDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/ProductConsumerDemo1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2134">
-          <caret line="99" column="5" selection-end-line="100" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/ConditionDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2046">
-          <caret line="95" column="32" selection-end-line="121" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/jvm/MyObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="13" selection-end-line="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/jvm/T2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/jvm/TestTransferValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="968">
-          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
-          <folding>
-            <element signature="e#212#213#0" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/jvm/T3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/jvm/T4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="9" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/jvm/T5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/jvm/VolatileDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-          <folding>
-            <element signature="e#187#188#0" expanded="true" />
-            <element signature="e#211#212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/ReSortSeqDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/CountDowmLatchDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/CallableDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/CyclicBarrierDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="14" column="41" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/SemaphoreDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/ReadWriteLockDeomo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1408">
-          <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/RandomDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1540">
-          <caret line="103" column="11" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
-          <folding>
-            <element signature="e#3504#3505#0" expanded="true" />
-            <element signature="e#3562#3563#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14850">
-          <caret line="730" column="33" selection-start-line="730" selection-end-line="731" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/concurrent/Callable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/concurrent/BlockingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="231" column="9" selection-start-line="231" selection-start-column="9" selection-end-line="231" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/evan/juc/BlockingQueueDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
