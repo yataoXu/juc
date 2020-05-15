@@ -1,4 +1,4 @@
-package com.evan.juc;
+package com.evan.juc.queue;
 
 
 import java.util.concurrent.ArrayBlockingQueue;

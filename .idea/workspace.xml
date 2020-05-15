@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1f8bfce-1c97-4ff7-9cbe-9a13f1ce4060" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c1f8bfce-1c97-4ff7-9cbe-9a13f1ce4060" name="Default Changelist" comment="juc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/BlockingQueueDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/queue/BlockingQueueDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/T5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/volatileDemo/T5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/the_art_of_java_concurrency_programming/part01/ConcurrencyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/the_art_of_java_concurrency_programming/part01/ConcurrencyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,16 +42,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>sub</find>
-      <find>add</find>
-      <find>put(</find>
-    </findStrings>
-    <dirStrings>
-      <dir>D:\juc\src\main\java\com\evan\juc</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,52 +79,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
-  <component name="RunManager" selected="Application.TestType01">
-    <configuration name="BlockingQueueDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.BlockingQueueDemo" />
-      <module name="classloading" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.evan.juc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReadWriteLockDeomo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.ReadWriteLockDeomo" />
-      <module name="classloading" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.evan.juc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SemaphoreDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.SemaphoreDemo" />
-      <module name="classloading" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.evan.juc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestType" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.core.base.itype.TestType" />
+  <component name="RunManager" selected="Application.ProducerAndCustomer">
+    <configuration name="BandDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.synchronizedDemo.BandDemo" />
       <module name="juc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.evan.core.base.itype.*" />
+          <option name="PATTERN" value="com.evan.juc.base.synchronizedDemo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,12 +93,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestType01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.core.base.itype.TestType01" />
+    <configuration name="MyCallable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.creadThread.MyCallable" />
       <module name="juc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.evan.core.base.itype.*" />
+          <option name="PATTERN" value="com.evan.juc.base.creadThread.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyRunnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.creadThread.MyRunnable" />
+      <module name="juc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.evan.juc.base.creadThread.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProducerAndCustomer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.reentrantLockDemo.ProducerAndCustomer" />
+      <module name="juc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.evan.juc.base.reentrantLockDemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicketClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.synchronizedDemo.TicketClient" />
+      <module name="juc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.evan.juc.base.synchronizedDemo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,19 +146,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.SemaphoreDemo" />
-      <item itemvalue="Application.ReadWriteLockDeomo" />
-      <item itemvalue="Application.BlockingQueueDemo" />
-      <item itemvalue="Application.TestType" />
-      <item itemvalue="Application.TestType01" />
+      <item itemvalue="Application.MyRunnable" />
+      <item itemvalue="Application.MyCallable" />
+      <item itemvalue="Application.TicketClient" />
+      <item itemvalue="Application.BandDemo" />
+      <item itemvalue="Application.ProducerAndCustomer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestType01" />
-        <item itemvalue="Application.TestType" />
-        <item itemvalue="Application.BlockingQueueDemo" />
-        <item itemvalue="Application.ReadWriteLockDeomo" />
-        <item itemvalue="Application.SemaphoreDemo" />
+        <item itemvalue="Application.ProducerAndCustomer" />
+        <item itemvalue="Application.BandDemo" />
+        <item itemvalue="Application.TicketClient" />
+        <item itemvalue="Application.MyCallable" />
+        <item itemvalue="Application.MyRunnable" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +190,13 @@
       <workItem from="1581152231631" duration="1050000" />
       <workItem from="1588916059506" duration="3758000" />
       <workItem from="1588988287464" duration="598000" />
-      <workItem from="1589117822388" duration="532000" />
+      <workItem from="1589117822388" duration="4086000" />
+      <workItem from="1589162556458" duration="27000" />
+      <workItem from="1589182119959" duration="2032000" />
+      <workItem from="1589273289391" duration="1044000" />
+      <workItem from="1589328738289" duration="9670000" />
+      <workItem from="1589435656379" duration="1028000" />
+      <workItem from="1589503843542" duration="2898000" />
     </task>
     <task id="LOCAL-00001" summary="同步">
       <created>1580991728920</created>
@@ -204,11 +219,37 @@
       <option name="project" value="LOCAL" />
       <updated>1581151735507</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="juc">
+      <created>1589118378679</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589118378679</updated>
+    </task>
+    <task id="LOCAL-00005" summary="juc">
+      <created>1589156980216</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589156980216</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="同步" />
@@ -216,30 +257,75 @@
     <option name="LAST_COMMIT_MESSAGE" value="juc" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="198" key="#Inspections" timestamp="1589273385110">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1589273385109" />
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1589334807866">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589334807866" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1588916082855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588916082855" />
-    <state width="1876" height="352" key="GridCell.Tab.0.bottom" timestamp="1588988252050">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1492" height="496" key="GridCell.Tab.0.bottom" timestamp="1589338681976">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1876" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588988252050" />
-    <state width="1876" height="352" key="GridCell.Tab.0.center" timestamp="1588988252050">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1492" height="496" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589338681976" />
+    <state width="1876" height="267" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589335960498" />
+    <state width="1492" height="496" key="GridCell.Tab.0.center" timestamp="1589338681976">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1876" height="352" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588988252050" />
-    <state width="1876" height="352" key="GridCell.Tab.0.left" timestamp="1588988252050">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1492" height="496" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589338681976" />
+    <state width="1876" height="267" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589335960498" />
+    <state width="1492" height="496" key="GridCell.Tab.0.left" timestamp="1589338681976">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1876" height="352" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588988252050" />
-    <state width="1876" height="352" key="GridCell.Tab.0.right" timestamp="1588988252050">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1492" height="496" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589338681976" />
+    <state width="1876" height="267" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589335960498" />
+    <state width="1492" height="496" key="GridCell.Tab.0.right" timestamp="1589338681976">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1876" height="352" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588988252050" />
+    <state width="1492" height="496" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589338681976" />
+    <state width="1876" height="267" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589335960498" />
+    <state width="1492" height="159" key="GridCell.Tab.1.bottom" timestamp="1589338471171">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1492" height="159" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589338471171" />
+    <state width="1876" height="397" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589250495382" />
+    <state width="1492" height="159" key="GridCell.Tab.1.center" timestamp="1589338471171">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1492" height="159" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589338471171" />
+    <state width="1876" height="397" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589250495382" />
+    <state width="1492" height="159" key="GridCell.Tab.1.left" timestamp="1589338471171">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1492" height="159" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589338471171" />
+    <state width="1876" height="397" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589250495382" />
+    <state width="1492" height="159" key="GridCell.Tab.1.right" timestamp="1589338471171">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1492" height="159" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589338471171" />
+    <state width="1876" height="397" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589250495382" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1588916088001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588916088001" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589156984174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589156984174" />
+    <state x="467" y="146" width="600" height="532" key="find.popup" timestamp="1589340462249">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="467" y="146" width="600" height="532" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1589340462249" />
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1589336804858">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589336804858" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589273573857" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -248,6 +334,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/evan/core/base/itype/TestType01.java</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/evan/juc/base/reentrantLockDemo/ProducerAndCustomer.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

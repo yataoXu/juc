@@ -10,7 +10,7 @@ public class ConcurrencyTest {
     }
 
     private static void concurrency() throws InterruptedException {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         Thread thread = new Thread(() ->
         {
             int a = 0;
@@ -24,13 +24,13 @@ public class ConcurrencyTest {
         for (long i = 0; i < count; i++) {
             b--;
         }
-        long time = System.currentTimeMillis() - start;
+        long time = System.nanoTime() - start;
         thread.join();
-        System.out.println("concurrency :" + time + "ms,b=" + b);
+        System.out.println("concurrency :" + time + " nano sec,b=" + b);
     }
 
     private static void serial() {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         int a = 0;
         for (long i = 0; i < count; i++) {
             a += 5;
@@ -39,7 +39,7 @@ public class ConcurrencyTest {
         for (long i = 0; i < count; i++) {
             b--;
         }
-        long time = System.currentTimeMillis() - start;
-        System.out.println("serial:" + time + "ms,b=" + b + ",a=" + a);
+        long time = System.nanoTime() - start;
+        System.out.println("serial:" + time + " nano sec,b=" + b + ",a=" + a);
     }
 }
