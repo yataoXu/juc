@@ -12,9 +12,13 @@ class Ticket implements Runnable {
 
     @Override
     public void run() {
-        while (ticketNum > 0) {
-            ticketNum--;
-            System.out.println("剩余的票数: " + ticketNum);
+        while (true) {
+            if (ticketNum > 0) {
+                ticketNum--;
+                System.out.println("剩余的票数: " + ticketNum);
+            } else {
+                break;
+            }
         }
     }
 }
@@ -22,8 +26,8 @@ class Ticket implements Runnable {
 class TicketClient {
     public static void main(String[] args) {
         Ticket ticket = new Ticket();
-        for (int i = 0; i < 1000; i++) {
-            new Thread(ticket).start();
-        }
+        new Thread(ticket).start();
+        new Thread(ticket).start();
+
     }
 }

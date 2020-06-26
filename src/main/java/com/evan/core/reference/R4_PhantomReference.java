@@ -1,6 +1,5 @@
 package com.evan.core.reference;
 
-import org.checkerframework.checker.units.qual.C;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;

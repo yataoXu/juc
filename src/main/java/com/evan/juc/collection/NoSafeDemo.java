@@ -1,4 +1,4 @@
-package com.evan.juc;
+package com.evan.juc.collection;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
