@@ -17,7 +17,6 @@ public class AtomicConsumer  extends Thread{
     @Override
     public void run() {
         for(int j = 0; j < AtomicTest.LOOP; j++) {
-            System.out.println("consumer : " + atomicCounter.getInteger());
             atomicCounter.decrement();
         }
     }

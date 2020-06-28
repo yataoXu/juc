@@ -1,18 +1,18 @@
-package com.evan.core.reference;
+package com.evan.juc.base.threadlocal;
+
+import lombok.Data;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * @Description
- * @ClassName ThreadLocalTest1
+ * @ClassName ThreadLocalTest
  * @Author Evan
  * @date 2020.06.14 17:48
  */
-public class ThreadLocalTest1 {
+public class ThreadLocalTest {
 
-    // volatile static Person person = new Person();
-    static ThreadLocal<Person> tl = new ThreadLocal<>();
-
+    volatile static Person person = new Person();
 
     public static void main(String[] args) {
 
@@ -25,7 +25,7 @@ public class ThreadLocalTest1 {
                 e.printStackTrace();
             }
 
-            System.out.println(tl.get());
+            System.out.println(person.getName());
 
         }, "thread-01").start();
 
@@ -36,7 +36,7 @@ public class ThreadLocalTest1 {
                 e.printStackTrace();
             }
 
-            tl.set(new Person("李四"));
+            person.setName("lisi");
 
         }, "thread-02").start();
     }

@@ -1,4 +1,4 @@
-package com.evan.juc;
+package com.evan.juc.base.synchronizedDemo;
 
 /**
  * @Description 题目： 两个线程，一个线程对共享变量+1 一个线程对共享变量-1，共享变量的取值范围(0,1)

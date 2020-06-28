@@ -1,7 +1,5 @@
 package com.evan.juc.cas;
 
-import lombok.Data;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -14,8 +12,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class AtomicCounter {
 
     private AtomicInteger integer  = new AtomicInteger();
-
-
 
     public AtomicInteger getInteger() {
         return integer;
@@ -31,5 +27,24 @@ public class AtomicCounter {
 
     public void decrement() {
         integer .decrementAndGet();
+    }
+}
+
+class AtomicTest {
+    final static int LOOP = 100;
+
+    public static void main(String[] args) throws InterruptedException {
+
+        AtomicCounter counter = new AtomicCounter();
+        AtomicProducer producer = new AtomicProducer(counter);
+        AtomicConsumer consumer = new AtomicConsumer(counter);
+
+        producer.start();
+        consumer.start();
+
+        producer.join();
+        consumer.join();
+
+        System.out.println(counter.getInteger());
     }
 }

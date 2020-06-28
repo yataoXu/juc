@@ -5,15 +5,8 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * @Description
- * @ClassName ReentrantLockDemo
- * @Author Evan
- * @date 2020.03.25 17:39
- */
-public class MyFairLock {
-
-    private static ReentrantLock lock = new ReentrantLock(true);
+public class MyNonfairLock {
+    private static ReentrantLock lock = new ReentrantLock();
 
     private static int count = 0;
 

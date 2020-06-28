@@ -1,8 +1,5 @@
 package com.evan.juf;
 
-import com.evan.juf.ConsumerTest;
-import com.sun.deploy.util.ArrayUtil;
-import com.evan.juf.Employee;
 import org.junit.Test;
 
 import java.util.ArrayList;
