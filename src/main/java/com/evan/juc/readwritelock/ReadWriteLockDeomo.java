@@ -1,4 +1,4 @@
-package com.evan.juc;
+package com.evan.juc.readwritelock ;
 
 import java.util.concurrent.locks.ReadWriteLock;
 
