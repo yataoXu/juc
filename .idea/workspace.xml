@@ -20,24 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1f8bfce-1c97-4ff7-9cbe-9a13f1ce4060" name="Default Changelist" comment="juc">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/core/TestSimpleDataFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/core/TestSimpleDataFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/core/reference/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/base/threadlocal/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/core/reference/ThreadLocalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/base/threadlocal/ThreadLocalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/core/reference/ThreadLocalTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/base/threadlocal/ThreadLocalTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/ProductConsumerDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/base/synchronizedDemo/ProductConsumerDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/base/lock/MyFairLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/base/lock/MyFairLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/cas/AtomicConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/cas/AtomicConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/cas/AtomicCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/cas/AtomicCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/cas/AtomicProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juc/cas/AtomicProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/cas/AtomicTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juc/the_art_of_java_concurrency_programming/ddd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/juf/TestStreamAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/juf/TestStreamAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/String.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/TestDoubleParent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/java/lang/_note.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/core/base/ArraysAsListDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/core/base/ArraysAsListDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/core/reflect/ProxyDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/core/reflect/ProxyDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/core/reflect/ProxyDemo2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/core/reflect/ProxyDemo2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +85,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/evan" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/evan/synchronizedblock" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/evan" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,7 +98,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -119,13 +106,13 @@
       <recent name="C:\work\juc\src\main\java\com\evan\synchronizedblock1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WeakReferenceDemo">
-    <configuration name="MyNonfairLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.lock.MyNonfairLock" />
+  <component name="RunManager" selected="Application.ArraysAsListDemo">
+    <configuration name="ArraysAsListDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.core.base.ArraysAsListDemo" />
       <module name="juc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.evan.juc.base.lock.*" />
+          <option name="PATTERN" value="com.evan.core.base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,12 +120,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductConsumerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.synchronizedDemo.ProductConsumerDemo" />
+    <configuration name="BlockingQueueClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.juc.queue.BlockingQueueClient" />
       <module name="juc" />
+      <option name="VM_PARAMETERS" value="-Dfile.encoding=utf-8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.evan.juc.base.synchronizedDemo.*" />
+          <option name="PATTERN" value="com.evan.juc.queue.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,13 +134,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadLocalDemo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.threadlocal.ThreadLocalDemo1" />
+    <configuration name="ReadWriteLockDeomo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.juc.readwritelock.ReadWriteLockDeomo" />
       <module name="juc" />
-      <option name="VM_PARAMETERS" value="-Dfile.encoding=UTF-8  " />
+      <option name="VM_PARAMETERS" value="-Dfile.encoding=utf-8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.evan.juc.base.threadlocal.*" />
+          <option name="PATTERN" value="com.evan.juc.readwritelock.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -160,12 +148,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadLocalTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.juc.base.threadlocal.ThreadLocalTest" />
+    <configuration name="Son" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.jvm.base.Son" />
       <module name="juc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.evan.juc.base.threadlocal.*" />
+          <option name="PATTERN" value="com.evan.jvm.base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -173,12 +161,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WeakReferenceDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.evan.core.reference.WeakReferenceDemo" />
+    <configuration name="StringDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.evan.jvm.base.StringDemo" />
       <module name="juc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.evan.core.reference.*" />
+          <option name="PATTERN" value="com.evan.jvm.base.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -187,19 +175,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MyNonfairLock" />
-      <item itemvalue="Application.ProductConsumerDemo" />
-      <item itemvalue="Application.ThreadLocalTest" />
-      <item itemvalue="Application.ThreadLocalDemo1" />
-      <item itemvalue="Application.WeakReferenceDemo" />
+      <item itemvalue="Application.ReadWriteLockDeomo" />
+      <item itemvalue="Application.BlockingQueueClient" />
+      <item itemvalue="Application.Son" />
+      <item itemvalue="Application.StringDemo" />
+      <item itemvalue="Application.ArraysAsListDemo" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WeakReferenceDemo" />
-        <item itemvalue="Application.ThreadLocalDemo1" />
-        <item itemvalue="Application.ThreadLocalTest" />
-        <item itemvalue="Application.ProductConsumerDemo" />
-        <item itemvalue="Application.MyNonfairLock" />
+        <item itemvalue="Application.ArraysAsListDemo" />
+        <item itemvalue="Application.StringDemo" />
+        <item itemvalue="Application.Son" />
+        <item itemvalue="Application.BlockingQueueClient" />
+        <item itemvalue="Application.ReadWriteLockDeomo" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +249,11 @@
       <workItem from="1592972489366" duration="3929000" />
       <workItem from="1593144369700" duration="11262000" />
       <workItem from="1593280213614" duration="763000" />
-      <workItem from="1593310338607" duration="28720000" />
+      <workItem from="1593310338607" duration="29053000" />
+      <workItem from="1593399311302" duration="21808000" />
+      <workItem from="1593486033493" duration="9523000" />
+      <workItem from="1593799980634" duration="1601000" />
+      <workItem from="1593934308602" duration="303000" />
     </task>
     <task id="LOCAL-00001" summary="同步">
       <created>1580991728920</created>
@@ -305,7 +297,21 @@
       <option name="project" value="LOCAL" />
       <updated>1593144627752</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="juc">
+      <created>1593365604562</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1593365604562</updated>
+    </task>
+    <task id="LOCAL-00008" summary="juc">
+      <created>1593450629908</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1593450629908</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,14 +347,14 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="186" y="155" key="#com.intellij.debugger.streams.ui.EvaluationAwareTraceWindow/0.0.1280.800@0.0.1280.800" timestamp="1592840620325" />
-    <state x="96" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593363999411">
+    <state x="96" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593447094297">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="96" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1593363999411" />
-    <state x="446" y="105" key="#com.intellij.ide.util.MemberChooser" timestamp="1592973893173">
+    <state x="96" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1593447094297" />
+    <state x="446" y="105" key="#com.intellij.ide.util.MemberChooser" timestamp="1593446247342">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="446" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1280.800@0.0.1280.800" timestamp="1592973893173" />
+    <state x="446" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1280.800@0.0.1280.800" timestamp="1593446247342" />
     <state x="371" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593335315721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -357,77 +363,77 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="93" y="93" width="1093" height="613" key="DiffContextDialog/0.0.1280.800@0.0.1280.800" timestamp="1593330877648" />
-    <state x="422" y="117" key="FileChooserDialogImpl" timestamp="1593330934570">
+    <state x="422" y="117" key="FileChooserDialogImpl" timestamp="1593602830683">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="422" y="111" key="FileChooserDialogImpl/0.0.1280.760@0.0.1280.760" timestamp="1592803825182" />
-    <state x="422" y="117" key="FileChooserDialogImpl/0.0.1280.800@0.0.1280.800" timestamp="1593330934570" />
-    <state width="1237" height="462" key="GridCell.Tab.0.bottom" timestamp="1593364604477">
+    <state x="422" y="117" key="FileChooserDialogImpl/0.0.1280.800@0.0.1280.800" timestamp="1593602830683" />
+    <state width="1237" height="332" key="GridCell.Tab.0.bottom" timestamp="1593602969396">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state width="1237" height="165" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1592804571973" />
-    <state width="1237" height="462" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1593364604477" />
-    <state width="1237" height="462" key="GridCell.Tab.0.center" timestamp="1593364604477">
+    <state width="1237" height="332" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1593602969396" />
+    <state width="1237" height="332" key="GridCell.Tab.0.center" timestamp="1593602969396">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state width="1237" height="165" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1592804571973" />
-    <state width="1237" height="462" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1593364604477" />
-    <state width="1237" height="462" key="GridCell.Tab.0.left" timestamp="1593364604477">
+    <state width="1237" height="332" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1593602969396" />
+    <state width="1237" height="332" key="GridCell.Tab.0.left" timestamp="1593602969396">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state width="1237" height="165" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1592804571973" />
-    <state width="1237" height="462" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1593364604477" />
-    <state width="1237" height="462" key="GridCell.Tab.0.right" timestamp="1593364604477">
+    <state width="1237" height="332" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1593602969396" />
+    <state width="1237" height="332" key="GridCell.Tab.0.right" timestamp="1593602969396">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state width="1237" height="165" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1592804571973" />
-    <state width="1237" height="462" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1593364604477" />
-    <state width="1237" height="384" key="GridCell.Tab.1.bottom" timestamp="1593364022770">
+    <state width="1237" height="332" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1593602969396" />
+    <state width="1237" height="269" key="GridCell.Tab.1.bottom" timestamp="1593451237680">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1237" height="384" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1593364022770" />
-    <state width="1237" height="384" key="GridCell.Tab.1.center" timestamp="1593364022770">
+    <state width="1237" height="269" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1593451237680" />
+    <state width="1237" height="269" key="GridCell.Tab.1.center" timestamp="1593451237680">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1237" height="384" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1593364022770" />
-    <state width="1237" height="384" key="GridCell.Tab.1.left" timestamp="1593364022770">
+    <state width="1237" height="269" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1593451237680" />
+    <state width="1237" height="269" key="GridCell.Tab.1.left" timestamp="1593451237680">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1237" height="384" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1593364022770" />
-    <state width="1237" height="384" key="GridCell.Tab.1.right" timestamp="1593364022770">
+    <state width="1237" height="269" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1593451237680" />
+    <state width="1237" height="269" key="GridCell.Tab.1.right" timestamp="1593451237680">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1237" height="384" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1593364022770" />
+    <state width="1237" height="269" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1593451237680" />
     <state x="171" y="55" key="Maven.ArtifactSearchDialog" timestamp="1593365502729">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="171" y="55" key="Maven.ArtifactSearchDialog/0.0.1280.800@0.0.1280.800" timestamp="1593365502729" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1593359265648">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1593504323447">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1592803849314" />
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1593359265648" />
-    <state x="233" y="133" key="Vcs.Push.Dialog.v2" timestamp="1593144632058">
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1593504323447" />
+    <state x="233" y="133" key="Vcs.Push.Dialog.v2" timestamp="1593450634712">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="233" y="133" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1593144632058" />
+    <state x="233" y="133" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1593450634712" />
     <state x="342" y="0" width="594" height="798" key="find.popup" timestamp="1593359471570">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="342" y="0" width="594" height="798" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1593359471570" />
-    <state x="6" y="43" key="new project wizard" timestamp="1593311065588">
+    <state x="6" y="21" key="new project wizard" timestamp="1593602812936">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="6" y="41" key="new project wizard/0.0.1280.760@0.0.1280.760" timestamp="1592809237044" />
-    <state x="6" y="43" key="new project wizard/0.0.1280.800@0.0.1280.800" timestamp="1593311065588" />
+    <state x="6" y="21" key="new project wizard/0.0.1280.800@0.0.1280.800" timestamp="1593602812936" />
     <state x="300" y="183" key="run.anything.popup" timestamp="1593280378295">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="300" y="183" key="run.anything.popup/0.0.1280.800@0.0.1280.800" timestamp="1593280378295" />
-    <state x="352" y="171" width="672" height="678" key="search.everywhere.popup" timestamp="1593364711217">
+    <state x="366" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1593800023404">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="352" y="171" width="672" height="678" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1593364711217" />
+    <state x="366" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1593800023404" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -504,6 +510,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/evan/juc/synchronizedblock/InstanceMethodSynchronizedLock.java</url>
           <line>15</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/evan/jvm/base/StringDemo.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

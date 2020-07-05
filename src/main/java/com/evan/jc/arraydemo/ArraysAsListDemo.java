@@ -1,9 +1,17 @@
-package com.evan.core.base;
+package com.evan.jc.arraydemo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+/**
+ * @Description
+ * @ClassName asListsTest01
+ * @Author Evan
+ * @date 2020.07.01 16:20
+ */
+
 
 public class ArraysAsListDemo {
     public static void main(String[] args) {
@@ -13,16 +21,45 @@ public class ArraysAsListDemo {
         list.forEach(System.out::println);
 
 
-        Integer [] array = {1, 2, 3};
+        /**
+         * 陷阱一：入参为基本类型
+         */
+        int[] array = {1, 2, 3};
         List myList = Arrays.asList(array);
-        // 陷阱一：
         System.out.println(myList.size()); // 1
-//        int[] array1 = {3, 4, 5};
-//        List myList1 = Arrays.asList(array, array1);
-//        System.out.println(myList1.size());// 2
+        int[] array1 = {3, 4, 5};
+        List myList1 = Arrays.asList(array, array1);
+        System.out.println(myList1.size());// 2
 
 
-        // improve
+        /**
+         * 陷阱一：入参为包装类型
+         * Integer[] array = { Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3) };
+         */
+        Integer[] integerArray = {1, 2, 3};
+        List integerList = Arrays.asList(integerArray);
+        System.out.println(integerList.size()); // 3
+        integerList.stream().forEach(System.out::println);
+
+        /**
+         * 陷阱一：入参为 String
+         * Integer[] array = { Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3) };
+         */
+        String[] arrStr = {"1", "2", "3"};
+        List<String> listStr = Arrays.asList(arrStr);
+        System.out.println(listStr.size()); // 3
+
+
+        /**
+         * 陷阱二
+         * Exceptioninthread"main"java.lang.UnsupportedOperationException
+         */
+        myList.add("Pear");
+
+
+        /**
+         * asList()的替代方案
+         */
 
         // type 1
         System.out.println("---------type 1---------");
@@ -50,12 +87,9 @@ public class ArraysAsListDemo {
         collect1.forEach(System.out::println);
 
         // type 4
-//        import org.springframework.util.CollectionUtils;
+        // import org.springframework.util.CollectionUtils;
 //        int[] myArray2 = {1, 2, 3};
 //        CollectionUtils.arrayToList(myArray2);
 
-
     }
-
-
 }

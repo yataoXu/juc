@@ -1,14 +1,18 @@
-package com.evan.core.reflect;
+package com.evan.jc.reflect;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Collection;
 
+/**
+ * @Description
+ * @ClassName ProxyDemo
+ * @Author Evan
+ * @date 2020.07.04 12:02
+ */
 public class ProxyDemo {
-
     public static void main(String[] args) {
-
         Class proxy = Proxy.getProxyClass(Collection.class.getClassLoader(), Collection.class);
         System.out.println(proxy.getName());
 
@@ -16,19 +20,22 @@ public class ProxyDemo {
         //按照以下格式输出构造函数列表，带参数
         //$Proxy0
         //$Proxy0(参数列表)
+
         Constructor[] constructors = proxy.getConstructors();
-        for (Constructor constructor : constructors) {
-            String name = constructor.getName();
+
+        for (Constructor collection : constructors) {
+            String name = collection.getName();
             System.out.println(name);
             StringBuilder stringBuilder = new StringBuilder();
-            Class[] parames = constructor.getParameterTypes();
+            Class[] parames = collection.getParameterTypes();
             stringBuilder.append(name);
             stringBuilder.append('(');
             for (Class parame : parames) {
                 stringBuilder.append(parame.getName()).append(",");
             }
-            if (parames != null && parames.length != 0)
+            if (parames != null && parames.length != 0) {
                 stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            }
             stringBuilder.append(')');
             System.out.println(stringBuilder.toString());
         }
@@ -36,6 +43,7 @@ public class ProxyDemo {
         System.out.println("-------Methods List ---------");
         //和上面的格式相同
         Method[] methods = proxy.getMethods();
+
         for (Method method : methods) {
             String name = method.getName();
             // System.out.println(name);
@@ -54,5 +62,4 @@ public class ProxyDemo {
         }
 
     }
-
 }
